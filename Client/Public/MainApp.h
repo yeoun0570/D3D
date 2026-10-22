@@ -5,8 +5,20 @@
 
 NS_BEGIN(Client)
 
-class CMainApp
+class CMainApp final 
 {
+private:
+	CMainApp();
+public:
+	~CMainApp() = default;
+
+public:
+	HRESULT Initialize();
+	void Update(f32_t fTimeDelta);
+	HRESULT Render();
+
+public:
+	static unique_ptr<CMainApp> Create();
 };
 
 NS_END

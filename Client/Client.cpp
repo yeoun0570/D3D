@@ -4,12 +4,12 @@
 #include "framework.h"
 #include "Client.h"
 
-#include "Client_Defines.h"
+#include "MainApp.h"
 
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
-HWND g_hWnd = {};
+HWND    g_hWnd = {};
 HINSTANCE g_hInstance = {};                     // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
@@ -29,6 +29,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
+    unique_ptr<CMainApp>            pMainApp = { nullptr };
 
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -40,6 +41,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
+
+    pMainApp = CMainApp::Create();
+    if (nullptr == pMainApp)
+        return FALSE;
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
 
@@ -57,10 +62,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             }
         }
 
-        // 내 게임의 반복적인 업데이트
-        // 내 게임의 반복적인 드로우콜
+        /* 내 게임의 반복적인 업데이트 */
+        pMainApp->Update(0.f);
+
+        /* 내 게임의 반복적인 드로우콜 */
+        if (FAILED(pMainApp->Render()))
+            return FALSE;
     }
-   
+
+    pMainApp.reset();
+
     return (int) msg.wParam;
 }
 
@@ -106,8 +117,12 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    g_hInstance = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+   RECT     rcWindow = {0, 0, g_iWinSizeX, g_iWinSizeY};
+
+   AdjustWindowRect(&rcWindow, WS_OVERLAPPEDWINDOW, TRUE);
+
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, rcWindow.right - rcWindow.left, rcWindow.bottom - rcWindow.top, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
@@ -116,6 +131,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   g_hWnd = hWnd;
 
    return TRUE;
 }
