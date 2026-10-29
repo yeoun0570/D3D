@@ -1,5 +1,7 @@
 #include "GameInstance.h"
 
+#include "Level_Manager.h"
+
 CGameInstance::CGameInstance()
 {
 }
@@ -14,7 +16,17 @@ HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ Co
     if (nullptr == m_pTimer_Manager)
         return E_FAIL;
 
+    m_pLevel_Manager = CLevel_Manager::Create();
+    if (nullptr == m_pLevel_Manager)
+        return E_FAIL;
+
+
     return S_OK;
+}
+
+void CGameInstance::Update_Engine(f32_t fTimeDelta)
+{
+    m_pLevel_Manager->Update(fTimeDelta);
 }
 
 HRESULT CGameInstance::Draw_Begin(const float4_t* pClearColor)
@@ -33,6 +45,9 @@ HRESULT CGameInstance::Draw(const float4_t* pClearColor)
         return E_FAIL;
 
     /* ±×¸°´Ù. */
+
+    if (FAILED(m_pLevel_Manager->Render()))
+        return E_FAIL;
     
     if (FAILED(Draw_End()))
         return E_FAIL;   
@@ -48,6 +63,12 @@ HRESULT CGameInstance::Draw_End()
     return S_OK;
 }
 
+HRESULT CGameInstance::Clear_Resources(uint32_t iClearLevelIndex)
+{
+
+    return S_OK;
+}
+#pragma region TIMER_MANAGER
 f32_t CGameInstance::Compute_TimeDelta(const wstring_t& strTimerTag)
 {
     return m_pTimer_Manager->Compute_TimeDelta(strTimerTag);    
@@ -58,8 +79,19 @@ HRESULT CGameInstance::Add_Timer(const wstring_t& strTimerTag)
     return m_pTimer_Manager->Add_Timer(strTimerTag);
 }
 
+#pragma endregion
+
+#pragma region LEVEL_MANAGER
+HRESULT CGameInstance::Change_Level(uint32_t iLevelIndex, shared_ptr<class CLevel> pNewLevel)
+{
+    return m_pLevel_Manager->Change_Level(iLevelIndex, pNewLevel);;
+}
+
+#pragma endregion
+
 void CGameInstance::Release_Engine()
 {
+    m_pLevel_Manager.reset();
     
     m_pTimer_Manager.reset();
 
