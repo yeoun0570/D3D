@@ -10,6 +10,21 @@
     <Filter Include="00.MainApp">
       <UniqueIdentifier>{f657f916-3c48-45bf-b467-27a1d2811460}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Levels">
+      <UniqueIdentifier>{00856d6b-988b-402a-9da9-3a3c86543fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Levels\Logo">
+      <UniqueIdentifier>{e472f223-2b04-40de-adfe-eb8166159eef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Levels\Loading">
+      <UniqueIdentifier>{a763b318-ae9f-4361-80df-4131c60bae3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Levels\GamePlay">
+      <UniqueIdentifier>{f2bced12-094d-47b6-a17e-f7f9a8cc1b68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Levels\Loading\Loader">
+      <UniqueIdentifier>{4cb80957-01eb-41db-8864-ba314e5732f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="public\MainApp.h">
@@ -30,6 +45,18 @@
     <ClInclude Include="Public\Client_Defines.h">
       <Filter>98.Defines</Filter>
     </ClInclude>
+    <ClInclude Include="Public\Loader.h">
+      <Filter>01.Levels\Loading\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Level_GamePlay.h">
+      <Filter>01.Levels\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Level_Logo.h">
+      <Filter>01.Levels\Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Level_Loading.h">
+      <Filter>01.Levels\Loading</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\MainApp.cpp">
@@ -37,6 +64,18 @@
     </ClCompile>
     <ClCompile Include="Client.cpp">
       <Filter>99.Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Loader.cpp">
+      <Filter>01.Levels\Loading\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Level_GamePlay.cpp">
+      <Filter>01.Levels\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Level_Logo.cpp">
+      <Filter>01.Levels\Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Level_Loading.cpp">
+      <Filter>01.Levels\Loading</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

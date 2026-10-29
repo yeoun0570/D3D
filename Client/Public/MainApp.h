@@ -21,6 +21,9 @@ private:
 	ComPtr<ID3D11Device>			m_pDevice = { nullptr };
 	ComPtr<ID3D11DeviceContext>		m_pContext = { nullptr };
 
+private:
+	HRESULT Start_Level(LEVEL eStartLevel);
+
 public:
 	static unique_ptr<CMainApp> Create();
 };

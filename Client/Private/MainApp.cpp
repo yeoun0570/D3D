@@ -1,6 +1,7 @@
 #include "MainApp.h"
 
 #include "GameInstance.h"
+#include "Level_Loading.h"
 
 CMainApp::CMainApp()
 {
@@ -24,12 +25,17 @@ HRESULT CMainApp::Initialize()
     if (FAILED(CGameInstance::Get().Initialize_Engine(EngineDesc, m_pDevice, m_pContext)))
         return E_FAIL;
 
+
+    if (FAILED(Start_Level(LEVEL::LOGO)))
+        return E_FAIL;
+
     return S_OK;
 }
 
 void CMainApp::Update(f32_t fTimeDelta)
 {
-  
+    CGameInstance::Get().Update_Engine(fTimeDelta);
+
 }
 
 HRESULT CMainApp::Render()
@@ -37,6 +43,15 @@ HRESULT CMainApp::Render()
     float4_t        vClearColor = float4_t(0.f, 0.f, 1.f, 1.f);
 
     if (FAILED(CGameInstance::Get().Draw(&vClearColor)))
+        return E_FAIL;
+
+    return S_OK;
+}
+
+HRESULT CMainApp::Start_Level(LEVEL eStartLevel)
+{
+    if (FAILED(CGameInstance::Get().Change_Level(ETOUI(LEVEL::LOADING),
+        CLevel_Loading::Create(m_pDevice, m_pContext, eStartLevel))))
         return E_FAIL;
 
     return S_OK;
