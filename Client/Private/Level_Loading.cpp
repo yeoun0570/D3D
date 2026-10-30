@@ -52,6 +52,11 @@ void CLevel_Loading::Update(f32_t fTimeDelta)
 
 HRESULT CLevel_Loading::Render()
 {
+
+#ifdef _DEBUG
+    m_pLoader->Print_Text();
+#endif
+
 	return S_OK;
 }
 

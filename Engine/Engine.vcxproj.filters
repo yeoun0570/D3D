@@ -37,6 +37,12 @@
     <Filter Include="01.Utility\01.Level\Manager">
       <UniqueIdentifier>{b1cefee4-1beb-4e04-879b-7981322099db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Utility\02. Prototype">
+      <UniqueIdentifier>{c8de5bf9-e8fb-4b52-8601-24c23ddaf20b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\02. Prototype\Manager">
+      <UniqueIdentifier>{1cda96e8-89a9-480f-a9d6-9e69900e79b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Public\Engine_Defines.h">
@@ -75,6 +81,12 @@
     <ClInclude Include="Public\Level.h">
       <Filter>01.Utility\01.Level</Filter>
     </ClInclude>
+    <ClInclude Include="Public\Prototype.h">
+      <Filter>01.Utility\02. Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Prototype_Manager.h">
+      <Filter>01.Utility\02. Prototype\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Timer_Manager.cpp">
@@ -94,6 +106,12 @@
     </ClCompile>
     <ClCompile Include="Private\Level.cpp">
       <Filter>01.Utility\01.Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Prototype.cpp">
+      <Filter>01.Utility\02. Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Prototype_Manager.cpp">
+      <Filter>01.Utility\02. Prototype\Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

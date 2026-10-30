@@ -3,6 +3,7 @@
 #include "Timer_Manager.h"
 #include "Level_Manager.h"
 #include "Graphic_Device.h"
+#include "Prototype_Manager.h"
 
 NS_BEGIN(Engine)
 
@@ -39,6 +40,7 @@ private:
 	unique_ptr<CTimer_Manager>				m_pTimer_Manager = { nullptr };
 	unique_ptr<CLevel_Manager>				m_pLevel_Manager = { nullptr };
 	unique_ptr<CGraphic_Device>				m_pGraphic_Device = { nullptr };
+	unique_ptr<CPrototype_Manager>			m_pPrototype_Manager = { nullptr };
 
 public:
 	void Release_Engine();
