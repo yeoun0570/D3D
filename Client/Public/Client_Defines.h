@@ -1,6 +1,8 @@
 #pragma once
 
 #include <windows.h>
+#include <process.h>
+
 using namespace std;
 
 namespace Client
@@ -8,7 +10,7 @@ namespace Client
 	static constexpr unsigned int		g_iWinSizeX = { 1280 };
 	static constexpr unsigned int		g_iWinSizeY = { 720 };
 	
-	enum class LEVEL { LOADING, LOGO, GAMEPLAY, END };
+	enum class LEVEL { STATIC, LOADING, LOGO, GAMEPLAY, END };
 }
 
 using namespace Client;

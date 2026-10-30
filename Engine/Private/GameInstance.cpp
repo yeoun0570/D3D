@@ -20,6 +20,10 @@ HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ Co
     if (nullptr == m_pLevel_Manager)
         return E_FAIL;
 
+    m_pPrototype_Manager = CPrototype_Manager::Create(EngineDesc.iNumLevels);
+    if (nullptr == m_pPrototype_Manager)
+        return E_FAIL;
+
 
     return S_OK;
 }
@@ -91,6 +95,8 @@ HRESULT CGameInstance::Change_Level(uint32_t iLevelIndex, shared_ptr<class CLeve
 
 void CGameInstance::Release_Engine()
 {
+    m_pPrototype_Manager.reset();
+
     m_pLevel_Manager.reset();
     
     m_pTimer_Manager.reset();

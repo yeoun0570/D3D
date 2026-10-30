@@ -14,12 +14,13 @@ CMainApp::~CMainApp()
 
 HRESULT CMainApp::Initialize()
 {
-    ENGINE_DESC     EngineDesc 
+    ENGINE_DESC     EngineDesc
     {
-        .hWnd = g_hWnd, 
-        .eWinMode = WINMODE::WIN, 
-        .iWinSizeX = g_iWinSizeX, 
-        .iWinSizeY = g_iWinSizeY, 
+        .hWnd = g_hWnd,
+        .eWinMode = WINMODE::WIN,
+        .iWinSizeX = g_iWinSizeX,
+        .iWinSizeY = g_iWinSizeY,
+        .iNumLevels = ETOUI(LEVEL::END),
     };
 
     if (FAILED(CGameInstance::Get().Initialize_Engine(EngineDesc, m_pDevice, m_pContext)))
