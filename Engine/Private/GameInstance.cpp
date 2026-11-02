@@ -24,7 +24,9 @@ HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ Co
     if (nullptr == m_pPrototype_Manager)
         return E_FAIL;
 
-
+    m_pObject_Manager = CObject_Manager::Create(EngineDesc.iNumLevels);
+    if (nullptr == m_pObject_Manager)
+        return E_FAIL;
     return S_OK;
 }
 
@@ -90,11 +92,30 @@ HRESULT CGameInstance::Change_Level(uint32_t iLevelIndex, shared_ptr<class CLeve
 {
     return m_pLevel_Manager->Change_Level(iLevelIndex, pNewLevel);;
 }
+#pragma endregion
+#pragma region PROTOTYPE_MANAGER
+HRESULT CGameInstance::Add_Prototype(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, shared_ptr<class CPrototype> pPrototype)
+{
+    return m_pPrototype_Manager->Add_Prototype(iPrototypeLevelIndex, strPrototypeTag, pPrototype);
+}
+
+shared_ptr<CPrototype> CGameInstance::Clone_Prototype(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, void* pArg)
+{
+    return m_pPrototype_Manager->Clone_Prototype(iPrototypeLevelIndex, strPrototypeTag, pArg);
+}
+#pragma endregion
+#pragma region OBJECT_MANAGER
+HRESULT CGameInstance::Add_GameObject(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, uint32_t iLayerLevelIndex, const wstring_t& strLayerTag, void* pArg)
+{
+    return m_pObject_Manager->Add_GameObject(iPrototypeLevelIndex, strPrototypeTag, iLayerLevelIndex, strLayerTag, pArg);
+}
 
 #pragma endregion
 
 void CGameInstance::Release_Engine()
 {
+    m_pObject_Manager.reset();
+
     m_pPrototype_Manager.reset();
 
     m_pLevel_Manager.reset();
