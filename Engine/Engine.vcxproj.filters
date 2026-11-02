@@ -37,11 +37,26 @@
     <Filter Include="01.Utility\01.Level\Manager">
       <UniqueIdentifier>{b1cefee4-1beb-4e04-879b-7981322099db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\02. Prototype">
-      <UniqueIdentifier>{c8de5bf9-e8fb-4b52-8601-24c23ddaf20b}</UniqueIdentifier>
+    <Filter Include="01.Utility\02.Prototype">
+      <UniqueIdentifier>{1cf05654-faa2-4c5f-8c02-f959eb3d50f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Utility\02. Prototype\Manager">
-      <UniqueIdentifier>{1cda96e8-89a9-480f-a9d6-9e69900e79b5}</UniqueIdentifier>
+    <Filter Include="01.Utility\02.Prototype\Manager">
+      <UniqueIdentifier>{700718d8-eba1-422a-a414-d300df036e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.GameObject">
+      <UniqueIdentifier>{fdfa18a8-2e6e-4dfe-8a4a-fbabe10e8fca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\04.Component">
+      <UniqueIdentifier>{fa56a292-1a0b-43da-ba5b-74839804a64e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.GameObject\UIObject">
+      <UniqueIdentifier>{629a0095-7321-4517-be19-b9bce13dd8fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.GameObject\Manager">
+      <UniqueIdentifier>{7fe37321-2db9-4a9b-af00-9d577e89fd72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\03.GameObject\Manager\Layer">
+      <UniqueIdentifier>{dca48e3d-c4af-4e49-a6a3-759d647c5352}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,17 +90,32 @@
     <ClInclude Include="Public\Graphic_Device.h">
       <Filter>00.System\01.Device\Graphic</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Level_Manager.h">
+    <ClInclude Include="public\Level_Manager.h">
       <Filter>01.Utility\01.Level\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Level.h">
+    <ClInclude Include="public\Level.h">
       <Filter>01.Utility\01.Level</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Prototype.h">
-      <Filter>01.Utility\02. Prototype</Filter>
-    </ClInclude>
     <ClInclude Include="Public\Prototype_Manager.h">
-      <Filter>01.Utility\02. Prototype\Manager</Filter>
+      <Filter>01.Utility\02.Prototype\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Prototype.h">
+      <Filter>01.Utility\02.Prototype</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\GameObject.h">
+      <Filter>01.Utility\03.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Component.h">
+      <Filter>01.Utility\04.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\UIObject.h">
+      <Filter>01.Utility\03.GameObject\UIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Object_Manager.h">
+      <Filter>01.Utility\03.GameObject\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Layer.h">
+      <Filter>01.Utility\03.GameObject\Manager\Layer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,17 +131,32 @@
     <ClCompile Include="Private\Graphic_Device.cpp">
       <Filter>00.System\01.Device\Graphic</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Level_Manager.cpp">
+    <ClCompile Include="private\Level_Manager.cpp">
       <Filter>01.Utility\01.Level\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Level.cpp">
+    <ClCompile Include="private\Level.cpp">
       <Filter>01.Utility\01.Level</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Prototype.cpp">
-      <Filter>01.Utility\02. Prototype</Filter>
-    </ClCompile>
     <ClCompile Include="Private\Prototype_Manager.cpp">
-      <Filter>01.Utility\02. Prototype\Manager</Filter>
+      <Filter>01.Utility\02.Prototype\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Prototype.cpp">
+      <Filter>01.Utility\02.Prototype</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\GameObject.cpp">
+      <Filter>01.Utility\03.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Component.cpp">
+      <Filter>01.Utility\04.Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\UIObject.cpp">
+      <Filter>01.Utility\03.GameObject\UIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Object_Manager.cpp">
+      <Filter>01.Utility\03.GameObject\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Layer.cpp">
+      <Filter>01.Utility\03.GameObject\Manager\Layer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -17,6 +17,10 @@ public:
 	virtual void Update(f32_t fTimeDelta) override;
 	virtual HRESULT Render() override;
 
+private:
+	HRESULT Ready_Layer_BackGround(const wstring_t& strLayerTag);
+
+
 public:
 	static shared_ptr<CLevel_Logo> Create(ComPtr<ID3D11Device> pDevice, ComPtr<ID3D11DeviceContext> pContext);
 };

@@ -3,6 +3,7 @@
 #include "Timer_Manager.h"
 #include "Level_Manager.h"
 #include "Graphic_Device.h"
+#include "Object_Manager.h"
 #include "Prototype_Manager.h"
 
 NS_BEGIN(Engine)
@@ -33,6 +34,15 @@ public:
 #pragma region LEVEL_MANAGER
 public:
 	HRESULT Change_Level(uint32_t iLevelIndex, shared_ptr<class CLevel> pNewLevel);
+
+#pragma endregion
+#pragma region PROTOTYPE_MANAGER
+	HRESULT Add_Prototype(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, shared_ptr<class CPrototype> pPrototype);
+	shared_ptr<CPrototype> Clone_Prototype(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, void* pArg = nullptr);
+#pragma endregion
+#pragma region OBJECT_MANAGER
+	HRESULT Add_GameObject(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, uint32_t iLayerLevelIndex, const wstring_t& strLayerTag, void* pArg);
+
 #pragma endregion
 
 
@@ -41,6 +51,8 @@ private:
 	unique_ptr<CLevel_Manager>				m_pLevel_Manager = { nullptr };
 	unique_ptr<CGraphic_Device>				m_pGraphic_Device = { nullptr };
 	unique_ptr<CPrototype_Manager>			m_pPrototype_Manager = { nullptr };
+
+	unique_ptr<CObject_Manager>				m_pObject_Manager = { nullptr };
 
 public:
 	void Release_Engine();

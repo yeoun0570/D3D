@@ -25,6 +25,12 @@
     <Filter Include="01.Levels\Loading\Loader">
       <UniqueIdentifier>{4cb80957-01eb-41db-8864-ba314e5732f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObjects">
+      <UniqueIdentifier>{bdf0e920-c71f-44ea-b70b-a06bb937c9ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\BackGround">
+      <UniqueIdentifier>{a230d152-4bc4-465d-af7d-403ed13055f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="public\MainApp.h">
@@ -45,17 +51,20 @@
     <ClInclude Include="Public\Client_Defines.h">
       <Filter>98.Defines</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Loader.h">
-      <Filter>01.Levels\Loading\Loader</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Level_GamePlay.h">
-      <Filter>01.Levels\GamePlay</Filter>
-    </ClInclude>
-    <ClInclude Include="Public\Level_Logo.h">
+    <ClInclude Include="public\Level_Logo.h">
       <Filter>01.Levels\Logo</Filter>
     </ClInclude>
     <ClInclude Include="Public\Level_Loading.h">
       <Filter>01.Levels\Loading</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Level_GamePlay.h">
+      <Filter>01.Levels\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Loader.h">
+      <Filter>01.Levels\Loading\Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\BackGround.h">
+      <Filter>02.GameObjects\BackGround</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,17 +74,20 @@
     <ClCompile Include="Client.cpp">
       <Filter>99.Default</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Loader.cpp">
-      <Filter>01.Levels\Loading\Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="Private\Level_GamePlay.cpp">
-      <Filter>01.Levels\GamePlay</Filter>
-    </ClCompile>
     <ClCompile Include="Private\Level_Logo.cpp">
       <Filter>01.Levels\Logo</Filter>
     </ClCompile>
     <ClCompile Include="Private\Level_Loading.cpp">
       <Filter>01.Levels\Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Level_GamePlay.cpp">
+      <Filter>01.Levels\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="private\Loader.cpp">
+      <Filter>01.Levels\Loading\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\BackGround.cpp">
+      <Filter>02.GameObjects\BackGround</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
