@@ -27,11 +27,20 @@ HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ Co
     m_pObject_Manager = CObject_Manager::Create(EngineDesc.iNumLevels);
     if (nullptr == m_pObject_Manager)
         return E_FAIL;
+
+    m_pRenderer = CRenderer::Create(pDevice, pContext);
+    if (nullptr == m_pRenderer)
+        return E_FAIL;
+
     return S_OK;
 }
 
 void CGameInstance::Update_Engine(f32_t fTimeDelta)
 {
+    m_pObject_Manager->Priority_Update(fTimeDelta);
+    m_pObject_Manager->Update(fTimeDelta);
+    m_pObject_Manager->Late_Update(fTimeDelta);
+
     m_pLevel_Manager->Update(fTimeDelta);
 }
 
@@ -51,6 +60,8 @@ HRESULT CGameInstance::Draw(const float4_t* pClearColor)
         return E_FAIL;
 
     /* ±×¸°´Ù. */
+    if (FAILED(m_pRenderer->Draw()))
+        return E_FAIL;
 
     if (FAILED(m_pLevel_Manager->Render()))
         return E_FAIL;
@@ -71,6 +82,9 @@ HRESULT CGameInstance::Draw_End()
 
 HRESULT CGameInstance::Clear_Resources(uint32_t iClearLevelIndex)
 {
+    m_pObject_Manager->Clear(iClearLevelIndex);
+
+    m_pPrototype_Manager->Clear(iClearLevelIndex);
 
     return S_OK;
 }
@@ -111,9 +125,18 @@ HRESULT CGameInstance::Add_GameObject(uint32_t iPrototypeLevelIndex, const wstri
 }
 
 #pragma endregion
+#pragma region RENDERER
+HRESULT CGameInstance::Add_RenderGroup(RENDERGROUP eGroup, shared_ptr<class CGameObject> pRenderObject)
+{
+    return m_pRenderer->Add_RenderGroup(eGroup, pRenderObject);
+}
+
+#pragma endregion
 
 void CGameInstance::Release_Engine()
 {
+    m_pRenderer.reset();
+
     m_pObject_Manager.reset();
 
     m_pPrototype_Manager.reset();

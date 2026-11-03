@@ -14,7 +14,9 @@ public:
 
 public:
 	HRESULT Add_GameObject(shared_ptr<CGameObject> pGameObject);
-
+	virtual void Priority_Update(f32_t fTimeDelta);
+	virtual void Update(f32_t fTimeDelta);
+	virtual void Late_Update(f32_t fTimeDelta);
 private:
 	list<shared_ptr<CGameObject>>			m_GameObjects;
 

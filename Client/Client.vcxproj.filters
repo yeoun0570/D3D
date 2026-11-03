@@ -63,7 +63,7 @@
     <ClInclude Include="public\Loader.h">
       <Filter>01.Levels\Loading\Loader</Filter>
     </ClInclude>
-    <ClInclude Include="Public\BackGround.h">
+    <ClInclude Include="public\BackGround.h">
       <Filter>02.GameObjects\BackGround</Filter>
     </ClInclude>
   </ItemGroup>

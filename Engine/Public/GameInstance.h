@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Renderer.h"
 #include "Timer_Manager.h"
 #include "Level_Manager.h"
 #include "Graphic_Device.h"
@@ -42,6 +43,9 @@ public:
 #pragma endregion
 #pragma region OBJECT_MANAGER
 	HRESULT Add_GameObject(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, uint32_t iLayerLevelIndex, const wstring_t& strLayerTag, void* pArg);
+#pragma endregion
+#pragma region RENDERER
+	HRESULT Add_RenderGroup(RENDERGROUP eGroup, shared_ptr<class CGameObject> pRenderObject);
 
 #pragma endregion
 
@@ -51,8 +55,8 @@ private:
 	unique_ptr<CLevel_Manager>				m_pLevel_Manager = { nullptr };
 	unique_ptr<CGraphic_Device>				m_pGraphic_Device = { nullptr };
 	unique_ptr<CPrototype_Manager>			m_pPrototype_Manager = { nullptr };
-
 	unique_ptr<CObject_Manager>				m_pObject_Manager = { nullptr };
+	unique_ptr<CRenderer>					m_pRenderer = { nullptr };
 
 public:
 	void Release_Engine();

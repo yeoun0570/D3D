@@ -20,7 +20,7 @@ HRESULT CUIObject::Initialize(void* pArg)
         auto		pDesc = static_cast<UIOBJECT_DESC*>(pArg);
 
         m_fX = pDesc->fX;
-        m_fY = pDesc->fX;
+        m_fY = pDesc->fY;
         m_fSizeX = pDesc->fSizeX;
         m_fSizeY = pDesc->fSizeY;
     }

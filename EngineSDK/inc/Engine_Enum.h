@@ -4,6 +4,7 @@
 namespace Engine
 {
 	enum class WINMODE { FULL, WIN, END };
+	enum class RENDERGROUP { PRIORITY, NONBLEND, BLEND, UI, END };
 
 	
 	//enum COMPONENTID { ID_DYNAMIC, ID_STATIC, ID_END };
