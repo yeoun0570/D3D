@@ -42,6 +42,10 @@ void CBackGround::Update(f32_t fTimeDelta)
 void CBackGround::Late_Update(f32_t fTimeDelta)
 {
 	__super::Late_Update(fTimeDelta);
+
+
+	CGameInstance::Get().Add_RenderGroup(RENDERGROUP::PRIORITY, dynamic_pointer_cast<CGameObject>(shared_from_this()));
+
 }
 
 HRESULT CBackGround::Render()
