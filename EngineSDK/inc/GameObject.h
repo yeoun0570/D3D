@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Prototype.h"
+#include "Transform.h"
 
 NS_BEGIN(Engine)
 
 class ENGINE_DLL CGameObject abstract : public CPrototype
 {
 public:
-	typedef struct tagGameObjectDesc
+	typedef struct tagGameObjectDesc : public CTransform::TRANSFORM_DESC
 	{
 		/* CGameObject생성시에 필요한 데이터를 받아온다. */
 		uint32_t	iData = {};		
@@ -26,7 +26,11 @@ public:
 	virtual HRESULT Render();
 
 protected:
-	uint32_t			m_iData = {};
+	uint32_t					m_iData = {};
+	shared_ptr<CTransform>		m_pTransformCom = { nullptr };
+
+protected:
+	map<const wstring_t, shared_ptr<CTransform>>		m_Components;
 
 public:
 	virtual shared_ptr<CPrototype> Clone(void* pArg) = 0;
