@@ -46,6 +46,15 @@ public:
 	void Go_Right(f32_t fTimeDelta);
 	void Go_Backward(f32_t fTimeDelta);
 
+	void Rotation(fvector_t vAxis, f32_t fAngle);
+	void Rotation(f32_t fAngleX, f32_t fAngleY, f32_t fAngleZ);
+
+	void Turn(fvector_t vAxis, f32_t fTimeDelta);
+	void Turn(f32_t fTimeDelta, bool_t isRotX = false, bool_t isRotY = false, bool_t isRotZ = false);
+
+	void LookAt(fvector_t vAt);
+	void Chase(fvector_t vTarget, f32_t fTimeDelta, f32_t fLimitDistance);
+
 private:
 	float4x4_t				m_WorldMatrix = {};
 	f32_t					m_fSpeedPerSec = {};
