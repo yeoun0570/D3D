@@ -42,6 +42,7 @@ HRESULT CLevel_Logo::Ready_Layer_BackGround(const wstring_t& strLayerTag)
 { 
    CBackGround::BACKGROUND_DESC		Desc{};
    
+  
    if (FAILED(CGameInstance::Get().Add_GameObject(ETOUI(LEVEL::LOGO), TEXT("Prototype_GameObject_BackGround"), ETOUI(LEVEL::LOGO), strLayerTag, &Desc)))
        return E_FAIL;
 

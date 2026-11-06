@@ -30,7 +30,7 @@ protected:
 	shared_ptr<CTransform>		m_pTransformCom = { nullptr };
 
 protected:
-	map<const wstring_t, shared_ptr<CComponent>>		m_Components;
+	map<const wstring_t, shared_ptr<CTransform>>		m_Components;
 
 public:
 	virtual shared_ptr<CPrototype> Clone(void* pArg) = 0;
