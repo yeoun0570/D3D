@@ -1,6 +1,9 @@
 #pragma once
 
+
+#include "Texture.h"
 #include "Renderer.h"
+#include "Transform.h"
 #include "Timer_Manager.h"
 #include "Level_Manager.h"
 #include "Graphic_Device.h"

@@ -26,6 +26,9 @@ HRESULT CBackGround::Initialize(void* pArg)
 	if (FAILED(__super::Initialize(pArg)))
 		return E_FAIL;
 
+	if (FAILED(Ready_Components()))
+		return E_FAIL;
+
 	return S_OK;
 }
 
@@ -52,6 +55,26 @@ HRESULT CBackGround::Render()
 {
 	if (FAILED(__super::Render()))
 		return E_FAIL;
+
+	return S_OK;
+}
+
+HRESULT CBackGround::Ready_Components()
+{
+	if (FAILED(__super::Add_Component(ETOUI(LEVEL::LOGO), TEXT("Prototype_Component_Texture_BackGround"),
+		TEXT("Com_Texture"), m_pTextureCom)))
+		return E_FAIL;
+
+	/*m_pTextureCom = dynamic_pointer_cast<CTexture>(CGameInstance::Get().Clone_Prototype(ETOUI(LEVEL::LOGO), TEXT("Prototype_Component_Texture_BackGround")));
+	if (nullptr == m_pTextureCom)
+		return E_FAIL;
+
+	if(nullptr != Find_Component(TEXT("Com_Texture")))
+		return E_FAIL;
+
+	m_Components.emplace(TEXT("Com_Texture"), m_pTextureCom);
+*/
+
 
 	return S_OK;
 }

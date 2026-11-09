@@ -166,7 +166,7 @@ void CTransform::Chase(fvector_t vTarget, f32_t fTimeDelta, f32_t fLimitDistance
 
 shared_ptr<CTransform> CTransform::Create(ComPtr<ID3D11Device> pDevice, ComPtr<ID3D11DeviceContext> pContext)
 {
-    auto    pInstance = unique_ptr<CTransform>(new CTransform(pDevice, pContext));
+    auto    pInstance = shared_ptr<CTransform>(new CTransform(pDevice, pContext));
 
     if (FAILED(pInstance->Initialize_Prototype()))
     {
@@ -180,7 +180,7 @@ shared_ptr<CTransform> CTransform::Create(ComPtr<ID3D11Device> pDevice, ComPtr<I
 
 shared_ptr<CPrototype> CTransform::Clone(void* pArg)
 {
-    auto    pInstance = unique_ptr<CTransform>(new CTransform(*this));
+    auto    pInstance = shared_ptr<CTransform>(new CTransform(*this));
 
     if (FAILED(pInstance->Initialize(pArg)))
     {
