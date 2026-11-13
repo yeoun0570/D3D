@@ -56,6 +56,15 @@ HRESULT CBackGround::Render()
 	if (FAILED(__super::Render()))
 		return E_FAIL;
 
+	if (FAILED(m_pVIBufferCom->Begin()))
+		return E_FAIL;
+
+	if (FAILED(m_pVIBufferCom->Render()))
+		return E_FAIL;
+
+	//if (FAILED(m_pVIBufferCom->End()))
+	//	return E_FAIL;
+
 	return S_OK;
 }
 
@@ -65,16 +74,9 @@ HRESULT CBackGround::Ready_Components()
 		TEXT("Com_Texture"), m_pTextureCom)))
 		return E_FAIL;
 
-	/*m_pTextureCom = dynamic_pointer_cast<CTexture>(CGameInstance::Get().Clone_Prototype(ETOUI(LEVEL::LOGO), TEXT("Prototype_Component_Texture_BackGround")));
-	if (nullptr == m_pTextureCom)
-		return E_FAIL;
-
-	if(nullptr != Find_Component(TEXT("Com_Texture")))
-		return E_FAIL;
-
-	m_Components.emplace(TEXT("Com_Texture"), m_pTextureCom);
-*/
-
+	if (FAILED(__super::Add_Component(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VIBuffer_Rect"),
+		TEXT("Com_VIBuffer"), m_pVIBufferCom)))
+		return E_FAIL;	
 
 	return S_OK;
 }

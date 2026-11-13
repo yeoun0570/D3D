@@ -12,6 +12,12 @@ namespace Engine
 		uint32_t		iNumLevels;
 	}ENGINE_DESC;
 
+	typedef struct tagVertexPositionTexcoord
+	{
+		XMFLOAT3			vPosition;
+		XMFLOAT2			vTexcoord;
+	}VTXPOSTEX;
+
 
 }
 

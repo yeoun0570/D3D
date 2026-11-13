@@ -5,6 +5,7 @@
 #include "Renderer.h"
 #include "Transform.h"
 #include "Timer_Manager.h"
+#include "VIBuffer_Rect.h"
 #include "Level_Manager.h"
 #include "Graphic_Device.h"
 #include "Object_Manager.h"

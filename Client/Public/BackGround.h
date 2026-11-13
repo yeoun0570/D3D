@@ -5,6 +5,7 @@
 
 NS_BEGIN(Engine)
 class CTexture;
+class CVIBuffer_Rect;
 NS_END
 
 NS_BEGIN(Client)
@@ -33,6 +34,7 @@ private:
 	float4_t			m_vColor = {};
 
 	shared_ptr<CTexture>		m_pTextureCom = { nullptr };
+	shared_ptr<CVIBuffer_Rect>	m_pVIBufferCom = { nullptr };
 
 private:
 	HRESULT Ready_Components();
