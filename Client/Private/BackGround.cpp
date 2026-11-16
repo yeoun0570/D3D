@@ -62,8 +62,8 @@ HRESULT CBackGround::Render()
 	if (FAILED(m_pVIBufferCom->Render()))
 		return E_FAIL;
 
-	//if (FAILED(m_pVIBufferCom->End()))
-	//	return E_FAIL;
+	if (FAILED(m_pVIBufferCom->End()))
+		return E_FAIL;
 
 	return S_OK;
 }
@@ -76,7 +76,7 @@ HRESULT CBackGround::Ready_Components()
 
 	if (FAILED(__super::Add_Component(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VIBuffer_Rect"),
 		TEXT("Com_VIBuffer"), m_pVIBufferCom)))
-		return E_FAIL;	
+		return E_FAIL;
 
 	return S_OK;
 }

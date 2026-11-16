@@ -31,6 +31,15 @@
     <Filter Include="02.GameObjects\BackGround">
       <UniqueIdentifier>{a230d152-4bc4-465d-af7d-403ed13055f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="97. ShaderFiles">
+      <UniqueIdentifier>{6efa1f51-2b8d-4c8a-9d9b-967dbf2c0c91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97. ShaderFiles\Vertex">
+      <UniqueIdentifier>{4f6bd689-ee90-47ed-8328-9d6b3ac62140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97. ShaderFiles\Pixel">
+      <UniqueIdentifier>{59e09211-ee0a-4e89-9d9c-71e4cd842eae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="public\MainApp.h">
@@ -102,5 +111,13 @@
     <ResourceCompile Include="Client.rc">
       <Filter>99.Default</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Bin\ShaderFiles\VertexShader\VS_PosTex.hlsl">
+      <Filter>97. ShaderFiles\Vertex</Filter>
+    </FxCompile>
+    <FxCompile Include="Bin\ShaderFiles\PixelShader\PS_PosTex.hlsl">
+      <Filter>97. ShaderFiles\Pixel</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
