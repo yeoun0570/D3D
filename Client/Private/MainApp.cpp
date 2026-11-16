@@ -26,6 +26,8 @@ HRESULT CMainApp::Initialize()
     if (FAILED(CGameInstance::Get().Initialize_Engine(EngineDesc, m_pDevice, m_pContext)))
         return E_FAIL;
 
+    if (FAILED(Ready_Statics()))
+        return E_FAIL;    
 
     if (FAILED(Start_Level(LEVEL::LOGO)))
         return E_FAIL;
@@ -54,6 +56,17 @@ HRESULT CMainApp::Start_Level(LEVEL eStartLevel)
     if (FAILED(CGameInstance::Get().Change_Level(ETOUI(LEVEL::LOADING),
         CLevel_Loading::Create(m_pDevice, m_pContext, eStartLevel))))
         return E_FAIL;
+
+    return S_OK;
+}
+
+HRESULT CMainApp::Ready_Statics()
+{
+    /* Prototype_Component_VIBuffer_Rect */
+    if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VIBuffer_Rect"),
+        CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
+        return E_FAIL;
+        
 
     return S_OK;
 }

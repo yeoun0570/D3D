@@ -91,8 +91,7 @@ HRESULT CLoader::Loading_For_LogoLV()
         return E_FAIL;
 
     lstrcpy(m_szLoadingText, TEXT("모델을 로딩 중 입니다."));
-    for (uint32_t i = 0; i < 99999999; i++)
-        uint32_t iData = 10;
+
 
     lstrcpy(m_szLoadingText, TEXT("사운드를 로딩 중 입니다."));
     for (uint32_t i = 0; i < 99999999; i++)

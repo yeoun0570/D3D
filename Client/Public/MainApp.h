@@ -1,4 +1,4 @@
-#pragma once
+	#pragma once
 
 #include "Client_Defines.h"
 #include "Engine_Defines.h"
@@ -23,6 +23,7 @@ private:
 
 private:
 	HRESULT Start_Level(LEVEL eStartLevel);
+	HRESULT Ready_Statics();
 
 public:
 	static unique_ptr<CMainApp> Create();
