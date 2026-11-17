@@ -73,6 +73,15 @@
     <Filter Include="01.Utility\04.Component\VIBuffer\Rect">
       <UniqueIdentifier>{763a8b27-09f8-4e4b-b508-b007d3dfaade}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Utility\04.Component\Shader">
+      <UniqueIdentifier>{8b783434-fd31-40e3-8112-f900e394198b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\04.Component\Shader\Vertex">
+      <UniqueIdentifier>{31f827a8-7765-4425-bc26-c606a4407606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\04.Component\Shader\Pixel">
+      <UniqueIdentifier>{25166d3a-3f96-4f0f-a550-e8de24980062}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Public\Engine_Defines.h">
@@ -150,6 +159,15 @@
     <ClInclude Include="Public\VIBuffer_Rect.h">
       <Filter>01.Utility\04.Component\VIBuffer\Rect</Filter>
     </ClInclude>
+    <ClInclude Include="Public\PixelShader.h">
+      <Filter>01.Utility\04.Component\Shader\Pixel</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\VertexShader.h">
+      <Filter>01.Utility\04.Component\Shader\Vertex</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Shader.h">
+      <Filter>01.Utility\04.Component\Shader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Timer_Manager.cpp">
@@ -205,6 +223,15 @@
     </ClCompile>
     <ClCompile Include="Private\VIBuffer_Rect.cpp">
       <Filter>01.Utility\04.Component\VIBuffer\Rect</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\VertexShader.cpp">
+      <Filter>01.Utility\04.Component\Shader\Vertex</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\PixelShader.cpp">
+      <Filter>01.Utility\04.Component\Shader\Pixel</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Shader.cpp">
+      <Filter>01.Utility\04.Component\Shader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

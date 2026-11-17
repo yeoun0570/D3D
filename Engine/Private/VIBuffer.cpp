@@ -33,7 +33,7 @@ HRESULT CVIBuffer::Begin()
 	m_pContext->IASetIndexBuffer(m_pIB.Get(), m_eIndexFormat, 0);
 	m_pContext->IASetPrimitiveTopology(m_ePrimitiveTopology);
 
-	//m_pDevice->CreateInputLayout();
+	// m_pDevice->CreateInputLayout();
 	//m_pContext->IASetInputLayout();
 
 	return S_OK;

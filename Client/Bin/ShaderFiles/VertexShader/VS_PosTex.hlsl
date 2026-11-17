@@ -33,12 +33,11 @@ Vertex_Out main(Vertex_In In)
     
     matrix matWV, matWVP;
     
-    In.vPosition.xz = 10.f;
+    //matWV = mul(g_WorldMatrix, g_ViewMatrix);
+    //matWVP = mul(matWV, g_ProjMatrix);
     
-    matWV = mul(g_WorldMatrix, g_ViewMatrix);
-    matWVP = mul(matWV, g_ProjMatrix);
-    
-    Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+    //Out.vPosition = mul(vector(In.vPosition, 1.f), matWVP);
+    Out.vPosition = vector(In.vPosition, 1.f);
     Out.vTexcoord = In.vTexcoord;
     
     return Out;

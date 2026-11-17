@@ -4,6 +4,7 @@
 #include "UIObject.h"
 
 NS_BEGIN(Engine)
+class CShader;
 class CTexture;
 class CVIBuffer_Rect;
 NS_END
@@ -35,9 +36,12 @@ private:
 
 	shared_ptr<CTexture>		m_pTextureCom = { nullptr };
 	shared_ptr<CVIBuffer_Rect>	m_pVIBufferCom = { nullptr };
+	shared_ptr<CShader>			m_pShaderCom[ETOUI(SHADER::END)] = { nullptr };
 
 private:
 	HRESULT Ready_Components();
+	HRESULT Bind_Shader_Resources();
+	HRESULT Release_Shader_Resources();
 
 public:
 	static shared_ptr<CBackGround> Create(ComPtr<ID3D11Device> pDevice, ComPtr<ID3D11DeviceContext> pContext);
