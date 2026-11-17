@@ -56,14 +56,15 @@ HRESULT CBackGround::Render()
 	if (FAILED(__super::Render()))
 		return E_FAIL;
 
-	if (FAILED(m_pVIBufferCom->Begin()))
+	if (FAILED(Bind_Shader_Resources()))
 		return E_FAIL;
 
 	if (FAILED(m_pVIBufferCom->Render()))
 		return E_FAIL;
 
-	if (FAILED(m_pVIBufferCom->End()))
+	if (FAILED(Release_Shader_Resources()))
 		return E_FAIL;
+
 
 	return S_OK;
 }
@@ -76,7 +77,38 @@ HRESULT CBackGround::Ready_Components()
 
 	if (FAILED(__super::Add_Component(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VIBuffer_Rect"),
 		TEXT("Com_VIBuffer"), m_pVIBufferCom)))
+		return E_FAIL;	
+
+	if (FAILED(__super::Add_Component(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VS_PosTex"),
+		TEXT("Com_VS"), m_pShaderCom[ETOUI(SHADER::VERTEX)])))
 		return E_FAIL;
+
+	if (FAILED(__super::Add_Component(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_PS_PosTex"),
+		TEXT("Com_PS"), m_pShaderCom[ETOUI(SHADER::PIXEL)])))
+		return E_FAIL;
+
+	return S_OK;
+}
+
+HRESULT CBackGround::Bind_Shader_Resources()
+{
+	for (auto& pShaderCom : m_pShaderCom)
+		pShaderCom->Begin();
+
+
+	if (FAILED(m_pVIBufferCom->Begin()))
+		return E_FAIL;
+
+	return S_OK;
+}
+
+HRESULT CBackGround::Release_Shader_Resources()
+{
+	if (FAILED(m_pVIBufferCom->End()))
+		return E_FAIL;
+
+	for (auto& pShaderCom : m_pShaderCom)
+		pShaderCom->End();
 
 	return S_OK;
 }

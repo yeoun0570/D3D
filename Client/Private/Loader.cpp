@@ -85,6 +85,7 @@ void CLoader::Print_Text()
 HRESULT CLoader::Loading_For_LogoLV()
 {
     lstrcpy(m_szLoadingText, TEXT("텍스쳐를 로딩 중 입니다."));
+
     /* For.Prototype_Component_Texture_BackGround */
     if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::LOGO), TEXT("Prototype_Component_Texture_BackGround"),
         CTexture::Create(m_pDevice, m_pContext, TEXT("Bin/Resources/Textures/Default%d.jpg"), 2))))

@@ -4,6 +4,8 @@
 #include "Texture.h"
 #include "Renderer.h"
 #include "Transform.h"
+#include "PixelShader.h"
+#include "VertexShader.h"
 #include "Timer_Manager.h"
 #include "VIBuffer_Rect.h"
 #include "Level_Manager.h"

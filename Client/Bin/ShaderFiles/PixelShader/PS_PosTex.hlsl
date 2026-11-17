@@ -18,7 +18,7 @@ Pixel_Out main(Pixel_In In)
 {
     Pixel_Out Out;
     
-    Out.vColor = g_Texture.Sample(g_LinearSampler, In.vTexcoord);
+    Out.vColor = /*g_Texture.Sample(g_LinearSampler, In.vTexcoord)*/In.vTexcoord.y;
     
     return Out;
 }

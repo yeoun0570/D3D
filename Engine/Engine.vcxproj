@@ -160,14 +160,17 @@
     <ClInclude Include="public\Level.h" />
     <ClInclude Include="public\Level_Manager.h" />
     <ClInclude Include="Public\Object_Manager.h" />
+    <ClInclude Include="Public\PixelShader.h" />
     <ClInclude Include="Public\Prototype.h" />
     <ClInclude Include="Public\Prototype_Manager.h" />
     <ClInclude Include="Public\Renderer.h" />
+    <ClInclude Include="Public\Shader.h" />
     <ClInclude Include="Public\Texture.h" />
     <ClInclude Include="Public\Timer.h" />
     <ClInclude Include="Public\Timer_Manager.h" />
     <ClInclude Include="public\Transform.h" />
     <ClInclude Include="Public\UIObject.h" />
+    <ClInclude Include="Public\VertexShader.h" />
     <ClInclude Include="Public\VIBuffer.h" />
     <ClInclude Include="Public\VIBuffer_Rect.h" />
   </ItemGroup>
@@ -180,14 +183,17 @@
     <ClCompile Include="private\Level.cpp" />
     <ClCompile Include="private\Level_Manager.cpp" />
     <ClCompile Include="Private\Object_Manager.cpp" />
+    <ClCompile Include="Private\PixelShader.cpp" />
     <ClCompile Include="Private\Prototype.cpp" />
     <ClCompile Include="Private\Prototype_Manager.cpp" />
     <ClCompile Include="Private\Renderer.cpp" />
+    <ClCompile Include="Private\Shader.cpp" />
     <ClCompile Include="Private\Texture.cpp" />
     <ClCompile Include="Private\Timer.cpp" />
     <ClCompile Include="Private\Timer_Manager.cpp" />
     <ClCompile Include="Private\Transform.cpp" />
     <ClCompile Include="Private\UIObject.cpp" />
+    <ClCompile Include="Private\VertexShader.cpp" />
     <ClCompile Include="Private\VIBuffer.cpp" />
     <ClCompile Include="Private\VIBuffer_Rect.cpp" />
   </ItemGroup>
