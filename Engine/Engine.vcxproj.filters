@@ -82,6 +82,12 @@
     <Filter Include="01.Utility\04.Component\Shader\Pixel">
       <UniqueIdentifier>{25166d3a-3f96-4f0f-a550-e8de24980062}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Utility\06.ConstantBuffer">
+      <UniqueIdentifier>{010d2710-e2c2-46cf-910c-5592deb2e78c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Utility\07.Pipeline">
+      <UniqueIdentifier>{33d40b1b-ee8c-4c97-9e2d-fe0f3ff16a0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Public\Engine_Defines.h">
@@ -159,14 +165,20 @@
     <ClInclude Include="Public\VIBuffer_Rect.h">
       <Filter>01.Utility\04.Component\VIBuffer\Rect</Filter>
     </ClInclude>
+    <ClInclude Include="public\Shader.h">
+      <Filter>01.Utility\04.Component\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="public\VertexShader.h">
+      <Filter>01.Utility\04.Component\Shader\Vertex</Filter>
+    </ClInclude>
     <ClInclude Include="Public\PixelShader.h">
       <Filter>01.Utility\04.Component\Shader\Pixel</Filter>
     </ClInclude>
-    <ClInclude Include="Public\VertexShader.h">
-      <Filter>01.Utility\04.Component\Shader\Vertex</Filter>
+    <ClInclude Include="Public\Pipeline.h">
+      <Filter>01.Utility\07.Pipeline</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Shader.h">
-      <Filter>01.Utility\04.Component\Shader</Filter>
+    <ClInclude Include="Public\ConstantBuffer.h">
+      <Filter>01.Utility\06.ConstantBuffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -224,14 +236,20 @@
     <ClCompile Include="Private\VIBuffer_Rect.cpp">
       <Filter>01.Utility\04.Component\VIBuffer\Rect</Filter>
     </ClCompile>
-    <ClCompile Include="Private\VertexShader.cpp">
+    <ClCompile Include="private\Shader.cpp">
+      <Filter>01.Utility\04.Component\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="private\VertexShader.cpp">
       <Filter>01.Utility\04.Component\Shader\Vertex</Filter>
     </ClCompile>
     <ClCompile Include="Private\PixelShader.cpp">
       <Filter>01.Utility\04.Component\Shader\Pixel</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Shader.cpp">
-      <Filter>01.Utility\04.Component\Shader</Filter>
+    <ClCompile Include="Private\ConstantBuffer.cpp">
+      <Filter>01.Utility\06.ConstantBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Pipeline.cpp">
+      <Filter>01.Utility\07.Pipeline</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

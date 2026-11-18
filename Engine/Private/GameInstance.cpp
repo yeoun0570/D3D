@@ -1,6 +1,7 @@
 #include "GameInstance.h"
 
 #include "Level_Manager.h"
+#include "Pipeline.h"
 
 CGameInstance::CGameInstance()
 {
@@ -30,6 +31,10 @@ HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ Co
 
     m_pRenderer = CRenderer::Create(pDevice, pContext);
     if (nullptr == m_pRenderer)
+        return E_FAIL;
+
+    m_pPipeline = CPipeline::Create(pDevice, pContext);
+    if (nullptr == m_pPipeline)
         return E_FAIL;
 
     return S_OK;
@@ -130,11 +135,49 @@ HRESULT CGameInstance::Add_RenderGroup(RENDERGROUP eGroup, shared_ptr<class CGam
 {
     return m_pRenderer->Add_RenderGroup(eGroup, pRenderObject);
 }
+#pragma endregion
+#pragma region PIPELINE
+const float4x4_t* CGameInstance::Get_Transform(D3DTS eTransformState) const
+{
+    return m_pPipeline->Get_Transform(eTransformState);
+}
+
+const float4x4_t* CGameInstance::Get_Ortho_Transform(D3DTS eTransformState) const
+{
+    return m_pPipeline->Get_Ortho_Transform(eTransformState);
+}
+
+const float4x4_t* CGameInstance::Get_Transform_Inverse(D3DTS eTransformState) const
+{
+    return m_pPipeline->Get_Transform_Inverse(eTransformState);
+}
+
+const float4x4_t* CGameInstance::Get_Ortho_Transform_Inverse(D3DTS eTransformState) const
+{
+    return m_pPipeline->Get_Ortho_Transform_Inverse(eTransformState);
+}
+
+const float4_t* CGameInstance::Get_CamPosition() const
+{
+    return m_pPipeline->Get_CamPosition();
+}
+
+void CGameInstance::Set_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix)
+{
+    m_pPipeline->Set_Transform(eTransformState, TransformMatrix);
+}
+
+void CGameInstance::Set_Ortho_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix)
+{
+    m_pPipeline->Set_Ortho_Transform(eTransformState, TransformMatrix);
+}
 
 #pragma endregion
 
 void CGameInstance::Release_Engine()
 {
+    m_pPipeline.reset();
+
     m_pRenderer.reset();
 
     m_pObject_Manager.reset();

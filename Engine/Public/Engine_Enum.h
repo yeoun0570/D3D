@@ -6,7 +6,7 @@ namespace Engine
 	enum class WINMODE { FULL, WIN, END };
 	enum class RENDERGROUP { PRIORITY, NONBLEND, BLEND, UI, END };
 	enum class STATE { RIGHT, UP, LOOK, POSITION, END };
-
+	enum class D3DTS { VIEW, PROJ, END};
 	
 	//enum COMPONENTID { ID_DYNAMIC, ID_STATIC, ID_END };
 

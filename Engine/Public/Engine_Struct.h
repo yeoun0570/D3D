@@ -12,6 +12,15 @@ namespace Engine
 		uint32_t		iNumLevels;
 	}ENGINE_DESC;
 
+	typedef struct tagPipelineDesc
+	{
+		XMFLOAT4X4		OrthoTransformMatrix[ETOUI(D3DTS::END)];
+		XMFLOAT4X4		OrthoTransformMatrix_Inverse[ETOUI(D3DTS::END)];
+		XMFLOAT4X4		TransformMatrix[ETOUI(D3DTS::END)];
+		XMFLOAT4X4		TransformMatrix_Inverse[ETOUI(D3DTS::END)];
+		XMFLOAT4		vCamPosition;		
+	}PIPELINE_DESC;
+
 	typedef struct tagVertexPositionTexcoord
 	{
 		XMFLOAT3			vPosition;

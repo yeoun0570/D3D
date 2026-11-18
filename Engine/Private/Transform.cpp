@@ -1,5 +1,7 @@
 #include "Transform.h"
 
+#include "GameInstance.h"
+
 CTransform::CTransform(ComPtr<ID3D11Device> pDevice, ComPtr<ID3D11DeviceContext> pContext)
 	: CComponent { pDevice, pContext }
 {
@@ -19,8 +21,26 @@ HRESULT CTransform::Initialize(void* pArg)
 
     m_fSpeedPerSec = pDesc->fSpeedPerSec;
     m_fRotationPerSec = XMConvertToRadians(pDesc->fRotationDegreePerSec);
+    XMStoreFloat4x4(&m_WorldMatrix, XMMatrixIdentity());
+
+    m_pCB = CConstantBuffer::Create(m_pDevice, m_pContext, &m_WorldMatrix, sizeof m_WorldMatrix);
+    if (nullptr == m_pCB)
+        return E_FAIL;
 
 	return S_OK;
+}
+
+HRESULT CTransform::Bind_VertexShader(uint32_t iSlot)
+{
+    if (nullptr == m_pCB)
+        return E_FAIL;
+
+    if (FAILED(m_pCB->Update(&m_WorldMatrix, sizeof m_WorldMatrix)))
+        return E_FAIL;
+
+    m_pCB->Bind_VertexShader(iSlot);
+
+    return S_OK;
 }
 
 void CTransform::SetUp_Scale(f32_t fScaleX, f32_t fScaleY, f32_t fScaleZ)

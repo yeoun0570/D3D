@@ -3,6 +3,7 @@
 
 #include "Texture.h"
 #include "Renderer.h"
+#include "Pipeline.h"
 #include "Transform.h"
 #include "PixelShader.h"
 #include "VertexShader.h"
@@ -11,6 +12,7 @@
 #include "Level_Manager.h"
 #include "Graphic_Device.h"
 #include "Object_Manager.h"
+#include "ConstantBuffer.h"
 #include "Prototype_Manager.h"
 
 NS_BEGIN(Engine)
@@ -52,7 +54,15 @@ public:
 #pragma endregion
 #pragma region RENDERER
 	HRESULT Add_RenderGroup(RENDERGROUP eGroup, shared_ptr<class CGameObject> pRenderObject);
-
+#pragma endregion
+#pragma region PIPELINE
+	const float4x4_t* Get_Transform(D3DTS eTransformState) const;
+	const float4x4_t* Get_Ortho_Transform(D3DTS eTransformState) const;
+	const float4x4_t* Get_Transform_Inverse(D3DTS eTransformState) const;
+	const float4x4_t* Get_Ortho_Transform_Inverse(D3DTS eTransformState) const;
+	const float4_t* Get_CamPosition() const;
+	void Set_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix);
+	void Set_Ortho_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix);
 #pragma endregion
 
 
@@ -63,6 +73,8 @@ private:
 	unique_ptr<CPrototype_Manager>			m_pPrototype_Manager = { nullptr };
 	unique_ptr<CObject_Manager>				m_pObject_Manager = { nullptr };
 	unique_ptr<CRenderer>					m_pRenderer = { nullptr };
+	unique_ptr<CPipeline>					m_pPipeline = { nullptr };
+	
 
 public:
 	void Release_Engine();
