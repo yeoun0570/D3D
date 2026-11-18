@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="public\Component.h" />
+    <ClInclude Include="Public\ConstantBuffer.h" />
     <ClInclude Include="Public\Engine_Defines.h" />
     <ClInclude Include="Public\Engine_Enum.h" />
     <ClInclude Include="Public\Engine_Function.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="public\Level.h" />
     <ClInclude Include="public\Level_Manager.h" />
     <ClInclude Include="Public\Object_Manager.h" />
+    <ClInclude Include="Public\Pipeline.h" />
     <ClInclude Include="Public\PixelShader.h" />
     <ClInclude Include="Public\Prototype.h" />
     <ClInclude Include="Public\Prototype_Manager.h" />
@@ -176,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Component.cpp" />
+    <ClCompile Include="Private\ConstantBuffer.cpp" />
     <ClCompile Include="private\GameInstance.cpp" />
     <ClCompile Include="Private\GameObject.cpp" />
     <ClCompile Include="Private\Graphic_Device.cpp" />
@@ -183,6 +186,7 @@
     <ClCompile Include="private\Level.cpp" />
     <ClCompile Include="private\Level_Manager.cpp" />
     <ClCompile Include="Private\Object_Manager.cpp" />
+    <ClCompile Include="Private\Pipeline.cpp" />
     <ClCompile Include="Private\PixelShader.cpp" />
     <ClCompile Include="Private\Prototype.cpp" />
     <ClCompile Include="Private\Prototype_Manager.cpp" />

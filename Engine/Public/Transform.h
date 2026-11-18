@@ -39,6 +39,9 @@ public:
 	virtual HRESULT Initialize(void* pArg) override;
 
 public:
+	HRESULT Bind_VertexShader(uint32_t iSlot);
+
+public:
 	void SetUp_Scale(f32_t fScaleX, f32_t fScaleY, f32_t fScaleZ);
 	
 	void Go_Straight(f32_t fTimeDelta);
@@ -59,6 +62,8 @@ private:
 	float4x4_t				m_WorldMatrix = {};
 	f32_t					m_fSpeedPerSec = {};
 	f32_t					m_fRotationPerSec = {};
+private:
+	shared_ptr<class CConstantBuffer>		m_pCB = { nullptr };
 
 public:
 	static shared_ptr<CTransform> Create(ComPtr<ID3D11Device> pDevice, ComPtr<ID3D11DeviceContext> pContext);
