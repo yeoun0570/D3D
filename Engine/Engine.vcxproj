@@ -146,7 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="public\Component.h" />
-    <ClInclude Include="Public\ConstantBuffer.h" />
+    <ClInclude Include="public\ConstantBuffer.h" />
     <ClInclude Include="Public\Engine_Defines.h" />
     <ClInclude Include="Public\Engine_Enum.h" />
     <ClInclude Include="Public\Engine_Function.h" />
@@ -161,24 +161,24 @@
     <ClInclude Include="public\Level.h" />
     <ClInclude Include="public\Level_Manager.h" />
     <ClInclude Include="Public\Object_Manager.h" />
-    <ClInclude Include="Public\Pipeline.h" />
+    <ClInclude Include="public\Pipeline.h" />
     <ClInclude Include="Public\PixelShader.h" />
     <ClInclude Include="Public\Prototype.h" />
     <ClInclude Include="Public\Prototype_Manager.h" />
     <ClInclude Include="Public\Renderer.h" />
-    <ClInclude Include="Public\Shader.h" />
-    <ClInclude Include="Public\Texture.h" />
+    <ClInclude Include="public\Shader.h" />
+    <ClInclude Include="public\Texture.h" />
     <ClInclude Include="Public\Timer.h" />
     <ClInclude Include="Public\Timer_Manager.h" />
     <ClInclude Include="public\Transform.h" />
     <ClInclude Include="Public\UIObject.h" />
-    <ClInclude Include="Public\VertexShader.h" />
-    <ClInclude Include="Public\VIBuffer.h" />
+    <ClInclude Include="public\VertexShader.h" />
+    <ClInclude Include="public\VIBuffer.h" />
     <ClInclude Include="Public\VIBuffer_Rect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Component.cpp" />
-    <ClCompile Include="Private\ConstantBuffer.cpp" />
+    <ClCompile Include="private\ConstantBuffer.cpp" />
     <ClCompile Include="private\GameInstance.cpp" />
     <ClCompile Include="Private\GameObject.cpp" />
     <ClCompile Include="Private\Graphic_Device.cpp" />
@@ -186,20 +186,23 @@
     <ClCompile Include="private\Level.cpp" />
     <ClCompile Include="private\Level_Manager.cpp" />
     <ClCompile Include="Private\Object_Manager.cpp" />
-    <ClCompile Include="Private\Pipeline.cpp" />
+    <ClCompile Include="private\Pipeline.cpp" />
     <ClCompile Include="Private\PixelShader.cpp" />
     <ClCompile Include="Private\Prototype.cpp" />
     <ClCompile Include="Private\Prototype_Manager.cpp" />
     <ClCompile Include="Private\Renderer.cpp" />
-    <ClCompile Include="Private\Shader.cpp" />
-    <ClCompile Include="Private\Texture.cpp" />
+    <ClCompile Include="private\Shader.cpp" />
+    <ClCompile Include="private\Texture.cpp" />
     <ClCompile Include="Private\Timer.cpp" />
     <ClCompile Include="Private\Timer_Manager.cpp" />
     <ClCompile Include="Private\Transform.cpp" />
     <ClCompile Include="Private\UIObject.cpp" />
-    <ClCompile Include="Private\VertexShader.cpp" />
-    <ClCompile Include="Private\VIBuffer.cpp" />
+    <ClCompile Include="private\VertexShader.cpp" />
+    <ClCompile Include="private\VIBuffer.cpp" />
     <ClCompile Include="Private\VIBuffer_Rect.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\EngineSDK\hlsl\Engine_VertexShader_Defines.hlsli" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

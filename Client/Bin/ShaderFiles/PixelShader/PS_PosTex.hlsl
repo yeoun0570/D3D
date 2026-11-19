@@ -1,5 +1,5 @@
 
-texture2D g_Texture : register(t0);
+texture2D g_Texture[2] : register(t0);
 
 sampler g_LinearSampler : register(s0);
 
@@ -18,7 +18,7 @@ Pixel_Out main(Pixel_In In)
 {
     Pixel_Out Out;
     
-    Out.vColor = /*g_Texture.Sample(g_LinearSampler, In.vTexcoord)*/In.vTexcoord.y;
+    Out.vColor = g_Texture[1].Sample(g_LinearSampler, In.vTexcoord);
     
     return Out;
 }

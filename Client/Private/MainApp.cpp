@@ -88,6 +88,11 @@ HRESULT CMainApp::Ready_Statics()
         CVertexShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/VertexShader/VS_PosTex.hlsl"), Elements, 2))))
         return E_FAIL;
 
+    /* Prototype_Component_VS_PosTex_Ortho */
+    if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VS_PosTex_Ortho"),
+        CVertexShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/VertexShader/VS_PosTex.hlsl"), Elements, 2, "main_ortho"))))
+        return E_FAIL;
+
     /* Prototype_Component_PS_PosTex*/
     if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_PS_PosTex"),
         CPixelShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/PixelShader/PS_PosTex.hlsl")))))
