@@ -23,11 +23,29 @@ HRESULT CBackGround::Initialize(void* pArg)
 		m_vColor = pDesc->vColor;
 	}
 
-	if (FAILED(__super::Initialize(pArg)))
+	BACKGROUND_DESC		Desc{};
+	Desc.fX = g_iWinSizeX * 0.5f;
+	Desc.fY = g_iWinSizeY * 0.5f;
+	Desc.fSizeX = g_iWinSizeX;
+	Desc.fSizeY = g_iWinSizeY;
+
+	if (FAILED(__super::Initialize(&Desc)))
 		return E_FAIL;
 
 	if (FAILED(Ready_Components()))
 		return E_FAIL;
+
+	D3D11_SAMPLER_DESC		SamplerDesc{
+		.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR,
+		.AddressU = D3D11_TEXTURE_ADDRESS_WRAP,
+		.AddressV = D3D11_TEXTURE_ADDRESS_WRAP,	
+		.AddressW = D3D11_TEXTURE_ADDRESS_WRAP, 
+	};
+
+	if (FAILED(m_pDevice->CreateSamplerState(&SamplerDesc, &m_pSamplerState)))
+		return E_FAIL;
+
+	
 
 	return S_OK;
 }
@@ -79,7 +97,7 @@ HRESULT CBackGround::Ready_Components()
 		TEXT("Com_VIBuffer"), m_pVIBufferCom)))
 		return E_FAIL;	
 
-	if (FAILED(__super::Add_Component(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VS_PosTex"),
+	if (FAILED(__super::Add_Component(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VS_PosTex_Ortho"),
 		TEXT("Com_VS"), m_pShaderCom[ETOUI(SHADER::VERTEX)])))
 		return E_FAIL;
 
@@ -97,6 +115,11 @@ HRESULT CBackGround::Bind_Shader_Resources()
 
 	if (FAILED(m_pTransformCom->Bind_VertexShader(0)))
 		return E_FAIL;
+
+	if (FAILED(m_pTextureCom->Bind_PixelShader(0)))
+		return E_FAIL;	
+
+	m_pContext->PSSetSamplers(0, 1, m_pSamplerState.GetAddressOf());
 
 	if (FAILED(m_pVIBufferCom->Begin()))
 		return E_FAIL;

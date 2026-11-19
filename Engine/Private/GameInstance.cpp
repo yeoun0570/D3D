@@ -9,6 +9,8 @@ CGameInstance::CGameInstance()
 
 HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ ComPtr<ID3D11Device>& pDevice, _Out_ ComPtr<ID3D11DeviceContext>& pContext)
 {
+    m_vViewportSize = float2_t(EngineDesc.iWinSizeX, EngineDesc.iWinSizeY);
+
     m_pGraphic_Device = CGraphic_Device::Create(EngineDesc.hWnd, EngineDesc.eWinMode, EngineDesc.iWinSizeX, EngineDesc.iWinSizeY, pDevice, pContext);
     if (nullptr == m_pGraphic_Device)
         return E_FAIL;
@@ -54,6 +56,9 @@ HRESULT CGameInstance::Draw_Begin(const float4_t* pClearColor)
     if (FAILED(m_pGraphic_Device->Clear_BackBuffer_View(pClearColor)))
         return E_FAIL;
     if (FAILED(m_pGraphic_Device->Clear_DepthStencil_View()))
+        return E_FAIL;
+
+    if (FAILED(m_pPipeline->Bind_VertexShader(ETOUI(V_SLOT::FRAME))))
         return E_FAIL;
 
     return S_OK;
@@ -170,6 +175,11 @@ void CGameInstance::Set_Transform(D3DTS eTransformState, fmatrix_t TransformMatr
 void CGameInstance::Set_Ortho_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix)
 {
     m_pPipeline->Set_Ortho_Transform(eTransformState, TransformMatrix);
+}
+
+HRESULT CGameInstance::Bind_VertexShader(uint32_t iSlot)
+{
+    return m_pPipeline->Bind_VertexShader(iSlot);
 }
 
 #pragma endregion

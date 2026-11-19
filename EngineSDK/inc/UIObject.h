@@ -28,6 +28,9 @@ public:
 protected:
 	f32_t			m_fX{}, m_fY{}, m_fSizeX{}, m_fSizeY{};
 
+protected:
+	void Update_Transform();
+
 public:
 	virtual shared_ptr<CPrototype> Clone(void* pArg) = 0;
 };

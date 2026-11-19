@@ -34,6 +34,9 @@ public:
 	HRESULT Draw(const float4_t* pClearColor);
 	HRESULT Draw_End();
 	HRESULT Clear_Resources(uint32_t iClearLevelIndex);
+	float2_t ViewportSize() const {
+		return m_vViewportSize;
+	}
 
 #pragma region TIMER_MANAGER
 public:
@@ -50,7 +53,7 @@ public:
 	shared_ptr<CPrototype> Clone_Prototype(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, void* pArg = nullptr);
 #pragma endregion
 #pragma region OBJECT_MANAGER
-	HRESULT Add_GameObject(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, uint32_t iLayerLevelIndex, const wstring_t& strLayerTag, void* pArg);
+	HRESULT Add_GameObject(uint32_t iPrototypeLevelIndex, const wstring_t& strPrototypeTag, uint32_t iLayerLevelIndex, const wstring_t& strLayerTag, void* pArg = nullptr);
 #pragma endregion
 #pragma region RENDERER
 	HRESULT Add_RenderGroup(RENDERGROUP eGroup, shared_ptr<class CGameObject> pRenderObject);
@@ -63,6 +66,7 @@ public:
 	const float4_t* Get_CamPosition() const;
 	void Set_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix);
 	void Set_Ortho_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix);
+	HRESULT Bind_VertexShader(uint32_t iSlot);
 #pragma endregion
 
 
@@ -74,6 +78,9 @@ private:
 	unique_ptr<CObject_Manager>				m_pObject_Manager = { nullptr };
 	unique_ptr<CRenderer>					m_pRenderer = { nullptr };
 	unique_ptr<CPipeline>					m_pPipeline = { nullptr };
+
+private:
+	float2_t			m_vViewportSize = {};
 	
 
 public:

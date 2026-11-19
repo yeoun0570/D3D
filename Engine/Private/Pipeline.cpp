@@ -19,6 +19,10 @@ HRESULT CPipeline::Initialize()
         XMStoreFloat4x4(&m_PipeLineDesc.TransformMatrix_Inverse[i], XMMatrixIdentity());
     }
 
+    XMStoreFloat4x4(&m_PipeLineDesc.OrthoTransformMatrix[ETOUI(D3DTS::PROJ)],
+        XMMatrixOrthographicLH(CGameInstance::Get().ViewportSize().x, CGameInstance::Get().ViewportSize().y, 0.f, 1.f));
+
+
     m_PipeLineDesc.vCamPosition = XMFLOAT4(0.f, 0.f, 0.f, 1.f);
 
     m_pCB = CConstantBuffer::Create(m_pDevice, m_pContext, &m_PipeLineDesc, sizeof m_PipeLineDesc);

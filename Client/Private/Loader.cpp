@@ -88,7 +88,7 @@ HRESULT CLoader::Loading_For_LogoLV()
 
     /* For.Prototype_Component_Texture_BackGround */
     if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::LOGO), TEXT("Prototype_Component_Texture_BackGround"),
-        CTexture::Create(m_pDevice, m_pContext, TEXT("Bin/Resources/Textures/Default%d.jpg"), 2))))
+        CTexture::Create(m_pDevice, m_pContext, TEXT("Bin/Resources/Textures/Default%d.dds"), 2))))
         return E_FAIL;
 
     lstrcpy(m_szLoadingText, TEXT("모델을 로딩 중 입니다."));
