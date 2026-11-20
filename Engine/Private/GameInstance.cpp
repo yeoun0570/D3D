@@ -39,6 +39,10 @@ HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ Co
     if (nullptr == m_pPipeline)
         return E_FAIL;
 
+    m_pSampler_Manager = CSampler_Manager::Create(pDevice, pContext);
+    if (nullptr == m_pSampler_Manager)
+        return E_FAIL;
+
     return S_OK;
 }
 
@@ -60,6 +64,14 @@ HRESULT CGameInstance::Draw_Begin(const float4_t* pClearColor)
 
     if (FAILED(m_pPipeline->Bind_VertexShader(ETOUI(V_SLOT::FRAME))))
         return E_FAIL;
+
+    if (FAILED(m_pSampler_Manager->Bind_PixelShader(g_strLinearSamplerTag, ETOUI(P_SLOT::LINEAR_SAMPLER))))
+        return E_FAIL;
+    if (FAILED(m_pSampler_Manager->Bind_PixelShader(g_strPointSamplerTag, ETOUI(P_SLOT::POINT_SAMPLER))))
+        return E_FAIL;
+
+
+
 
     return S_OK;
 }
@@ -176,11 +188,20 @@ void CGameInstance::Set_Ortho_Transform(D3DTS eTransformState, fmatrix_t Transfo
 {
     m_pPipeline->Set_Ortho_Transform(eTransformState, TransformMatrix);
 }
+#pragma endregion
 
-HRESULT CGameInstance::Bind_VertexShader(uint32_t iSlot)
+#pragma region SAMPLER_MANAGER
+
+HRESULT CGameInstance::Add_SamplerState(const wstring_t& strSamplerTag, const D3D11_SAMPLER_DESC& SamplerDesc)
 {
-    return m_pPipeline->Bind_VertexShader(iSlot);
+    return m_pSampler_Manager->Add_SamplerState(strSamplerTag, SamplerDesc);
 }
+
+HRESULT CGameInstance::Bind_PixelShader_Sampler(const wstring_t& strSamplerTag, uint32_t iSlot)
+{
+    return m_pSampler_Manager->Bind_PixelShader(strSamplerTag, iSlot);
+}
+
 
 #pragma endregion
 
@@ -199,4 +220,6 @@ void CGameInstance::Release_Engine()
     m_pTimer_Manager.reset();
 
     m_pGraphic_Device.reset();
+
+    m_pSampler_Manager.reset();
 }

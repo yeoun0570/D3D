@@ -35,18 +35,6 @@ HRESULT CBackGround::Initialize(void* pArg)
 	if (FAILED(Ready_Components()))
 		return E_FAIL;
 
-	D3D11_SAMPLER_DESC		SamplerDesc{
-		.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR,
-		.AddressU = D3D11_TEXTURE_ADDRESS_WRAP,
-		.AddressV = D3D11_TEXTURE_ADDRESS_WRAP,	
-		.AddressW = D3D11_TEXTURE_ADDRESS_WRAP, 
-	};
-
-	if (FAILED(m_pDevice->CreateSamplerState(&SamplerDesc, &m_pSamplerState)))
-		return E_FAIL;
-
-	
-
 	return S_OK;
 }
 
@@ -118,8 +106,6 @@ HRESULT CBackGround::Bind_Shader_Resources()
 
 	if (FAILED(m_pTextureCom->Bind_PixelShader(0)))
 		return E_FAIL;	
-
-	m_pContext->PSSetSamplers(0, 1, m_pSamplerState.GetAddressOf());
 
 	if (FAILED(m_pVIBufferCom->Begin()))
 		return E_FAIL;

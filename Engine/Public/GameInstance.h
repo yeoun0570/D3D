@@ -11,8 +11,10 @@
 #include "VIBuffer_Rect.h"
 #include "Level_Manager.h"
 #include "Graphic_Device.h"
+
 #include "Object_Manager.h"
 #include "ConstantBuffer.h"
+#include "Sampler_Manager.h"
 #include "Prototype_Manager.h"
 
 NS_BEGIN(Engine)
@@ -65,8 +67,12 @@ public:
 	const float4x4_t* Get_Ortho_Transform_Inverse(D3DTS eTransformState) const;
 	const float4_t* Get_CamPosition() const;
 	void Set_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix);
-	void Set_Ortho_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix);
-	HRESULT Bind_VertexShader(uint32_t iSlot);
+	void Set_Ortho_Transform(D3DTS eTransformState, fmatrix_t TransformMatrix);	
+#pragma endregion
+
+#pragma region SAMPLER_MANAGER
+	HRESULT Add_SamplerState(const wstring_t& strSamplerTag, const D3D11_SAMPLER_DESC& SamplerDesc);
+	HRESULT Bind_PixelShader_Sampler(const wstring_t& strSamplerTag, uint32_t iSlot);
 #pragma endregion
 
 
@@ -78,6 +84,7 @@ private:
 	unique_ptr<CObject_Manager>				m_pObject_Manager = { nullptr };
 	unique_ptr<CRenderer>					m_pRenderer = { nullptr };
 	unique_ptr<CPipeline>					m_pPipeline = { nullptr };
+	unique_ptr<CSampler_Manager>			m_pSampler_Manager = { nullptr };
 
 private:
 	float2_t			m_vViewportSize = {};

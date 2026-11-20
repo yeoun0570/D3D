@@ -166,6 +166,8 @@
     <ClInclude Include="Public\Prototype.h" />
     <ClInclude Include="Public\Prototype_Manager.h" />
     <ClInclude Include="Public\Renderer.h" />
+    <ClInclude Include="Public\SamplerState.h" />
+    <ClInclude Include="Public\Sampler_Manager.h" />
     <ClInclude Include="public\Shader.h" />
     <ClInclude Include="public\Texture.h" />
     <ClInclude Include="Public\Timer.h" />
@@ -191,6 +193,8 @@
     <ClCompile Include="Private\Prototype.cpp" />
     <ClCompile Include="Private\Prototype_Manager.cpp" />
     <ClCompile Include="Private\Renderer.cpp" />
+    <ClCompile Include="Private\SamplerState.cpp" />
+    <ClCompile Include="Private\Sampler_Manager.cpp" />
     <ClCompile Include="private\Shader.cpp" />
     <ClCompile Include="private\Texture.cpp" />
     <ClCompile Include="Private\Timer.cpp" />
@@ -203,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\EngineSDK\hlsl\Engine_VertexShader_Defines.hlsli" />
+    <None Include="Bin\ShaderFiles\Engine_PixelShader_Defines.hlsli" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
