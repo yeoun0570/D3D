@@ -1,7 +1,7 @@
 
-texture2D g_Texture[2] : register(t0);
+#include "../../../../EngineSDK/hlsl/Engine_PixelShader_Defines.hlsli"
 
-sampler g_LinearSampler : register(s0);
+texture2D g_Texture[2] : register(t0);
 
 struct Pixel_In
 {

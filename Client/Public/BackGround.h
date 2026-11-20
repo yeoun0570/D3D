@@ -38,7 +38,7 @@ private:
 	shared_ptr<CVIBuffer_Rect>	m_pVIBufferCom = { nullptr };
 	shared_ptr<CShader>			m_pShaderCom[ETOUI(SHADER::END)] = { nullptr };
 
-	ComPtr<ID3D11SamplerState>	m_pSamplerState = {};
+
 private:
 	HRESULT Ready_Components();
 	HRESULT Bind_Shader_Resources();

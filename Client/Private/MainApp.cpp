@@ -66,31 +66,16 @@ HRESULT CMainApp::Ready_Statics()
     if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VIBuffer_Rect"),
         CVIBuffer_Rect::Create(m_pDevice, m_pContext))))
         return E_FAIL;
-
-    /* 
-    LPCSTR SemanticName;
-    UINT SemanticIndex;
-    DXGI_FORMAT Format;
-    UINT InputSlot;
-    UINT AlignedByteOffset;
-    D3D11_INPUT_CLASSIFICATION InputSlotClass;
-    UINT InstanceDataStepRate;
-    */
-    
-    /* Prototype_Component_VS_PosTex */
-    D3D11_INPUT_ELEMENT_DESC        Elements[2] = {
-        { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },        
-    };
-
+   
+  
     /* Prototype_Component_VS_PosTex */
     if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VS_PosTex"),
-        CVertexShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/VertexShader/VS_PosTex.hlsl"), Elements, 2))))
+        CVertexShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/VertexShader/VS_PosTex.hlsl"), VTXPOSTEX::Elements, VTXPOSTEX::iNumElements))))
         return E_FAIL;
 
     /* Prototype_Component_VS_PosTex_Ortho */
     if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::STATIC), TEXT("Prototype_Component_VS_PosTex_Ortho"),
-        CVertexShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/VertexShader/VS_PosTex.hlsl"), Elements, 2, "main_ortho"))))
+        CVertexShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/VertexShader/VS_PosTex.hlsl"), VTXPOSTEX::Elements, VTXPOSTEX::iNumElements, "main_ortho"))))
         return E_FAIL;
 
     /* Prototype_Component_PS_PosTex*/

@@ -8,6 +8,7 @@ namespace Engine
 	enum class STATE { RIGHT, UP, LOOK, POSITION, END };
 	enum class D3DTS { VIEW, PROJ, END};
 	enum class V_SLOT { OBJECT, FRAME };
+	enum class P_SLOT { LINEAR_SAMPLER, POINT_SAMPLER };
 	
 	//enum COMPONENTID { ID_DYNAMIC, ID_STATIC, ID_END };
 
