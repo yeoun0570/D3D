@@ -166,8 +166,8 @@
     <ClInclude Include="Public\Prototype.h" />
     <ClInclude Include="Public\Prototype_Manager.h" />
     <ClInclude Include="Public\Renderer.h" />
-    <ClInclude Include="Public\SamplerState.h" />
-    <ClInclude Include="Public\Sampler_Manager.h" />
+    <ClInclude Include="public\SamplerState.h" />
+    <ClInclude Include="public\Sampler_Manager.h" />
     <ClInclude Include="public\Shader.h" />
     <ClInclude Include="public\Texture.h" />
     <ClInclude Include="Public\Timer.h" />
@@ -177,6 +177,7 @@
     <ClInclude Include="public\VertexShader.h" />
     <ClInclude Include="public\VIBuffer.h" />
     <ClInclude Include="Public\VIBuffer_Rect.h" />
+    <ClInclude Include="Public\VIBuffer_Terrain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Component.cpp" />
@@ -193,8 +194,8 @@
     <ClCompile Include="Private\Prototype.cpp" />
     <ClCompile Include="Private\Prototype_Manager.cpp" />
     <ClCompile Include="Private\Renderer.cpp" />
-    <ClCompile Include="Private\SamplerState.cpp" />
-    <ClCompile Include="Private\Sampler_Manager.cpp" />
+    <ClCompile Include="private\SamplerState.cpp" />
+    <ClCompile Include="private\Sampler_Manager.cpp" />
     <ClCompile Include="private\Shader.cpp" />
     <ClCompile Include="private\Texture.cpp" />
     <ClCompile Include="Private\Timer.cpp" />
@@ -204,10 +205,11 @@
     <ClCompile Include="private\VertexShader.cpp" />
     <ClCompile Include="private\VIBuffer.cpp" />
     <ClCompile Include="Private\VIBuffer_Rect.cpp" />
+    <ClCompile Include="Private\VIBuffer_Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\EngineSDK\hlsl\Engine_PixelShader_Defines.hlsli" />
     <None Include="..\EngineSDK\hlsl\Engine_VertexShader_Defines.hlsli" />
-    <None Include="Bin\ShaderFiles\Engine_PixelShader_Defines.hlsli" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

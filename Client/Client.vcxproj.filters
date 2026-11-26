@@ -40,6 +40,9 @@
     <Filter Include="97.ShaderFiles\Pixel">
       <UniqueIdentifier>{4aaf96b8-7527-4f8e-8e1d-46b3c3c172a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObjects\Terrain">
+      <UniqueIdentifier>{857e2820-40fb-4cf0-a5cb-910973813cf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="public\MainApp.h">
@@ -75,6 +78,9 @@
     <ClInclude Include="public\BackGround.h">
       <Filter>02.GameObjects\BackGround</Filter>
     </ClInclude>
+    <ClInclude Include="Public\Terrain.h">
+      <Filter>02.GameObjects\Terrain</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\MainApp.cpp">
@@ -98,6 +104,9 @@
     <ClCompile Include="Private\BackGround.cpp">
       <Filter>02.GameObjects\BackGround</Filter>
     </ClCompile>
+    <ClCompile Include="Private\Terrain.cpp">
+      <Filter>02.GameObjects\Terrain</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -113,11 +122,17 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Bin\ShaderFiles\VertexShader\VS_PosTex.hlsl">
-      <Filter>97.ShaderFiles\Vertex</Filter>
-    </FxCompile>
     <FxCompile Include="Bin\ShaderFiles\PixelShader\PS_PosTex.hlsl">
       <Filter>97.ShaderFiles\Pixel</Filter>
+    </FxCompile>
+    <FxCompile Include="Bin\ShaderFiles\PixelShader\PS_PosNorTex.hlsl">
+      <Filter>97.ShaderFiles\Pixel</Filter>
+    </FxCompile>
+    <FxCompile Include="Bin\ShaderFiles\VertexShader\VS_PosNorTex.hlsl">
+      <Filter>97.ShaderFiles\Vertex</Filter>
+    </FxCompile>
+    <FxCompile Include="Bin\ShaderFiles\VertexShader\VS_PosTex.hlsl">
+      <Filter>97.ShaderFiles\Vertex</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

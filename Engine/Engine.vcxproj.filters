@@ -94,6 +94,9 @@
     <Filter Include="01.Utility\08.Sampler\Manager">
       <UniqueIdentifier>{53302dbd-a1fd-4f99-9aa7-982c9865b324}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Utility\04.Component\VIBuffer\Terrain">
+      <UniqueIdentifier>{8be8c2ad-95b8-4d69-807a-a9737b6e84a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Public\Engine_Defines.h">
@@ -186,11 +189,14 @@
     <ClInclude Include="public\Pipeline.h">
       <Filter>01.Utility\07.Pipeline</Filter>
     </ClInclude>
-    <ClInclude Include="Public\SamplerState.h">
+    <ClInclude Include="public\SamplerState.h">
       <Filter>01.Utility\08.Sampler</Filter>
     </ClInclude>
-    <ClInclude Include="Public\Sampler_Manager.h">
+    <ClInclude Include="public\Sampler_Manager.h">
       <Filter>01.Utility\08.Sampler\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\VIBuffer_Terrain.h">
+      <Filter>01.Utility\04.Component\VIBuffer\Terrain</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -263,15 +269,18 @@
     <ClCompile Include="private\Pipeline.cpp">
       <Filter>01.Utility\07.Pipeline</Filter>
     </ClCompile>
-    <ClCompile Include="Private\Sampler_Manager.cpp">
+    <ClCompile Include="private\SamplerState.cpp">
+      <Filter>01.Utility\08.Sampler</Filter>
+    </ClCompile>
+    <ClCompile Include="private\Sampler_Manager.cpp">
       <Filter>01.Utility\08.Sampler\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Private\SamplerState.cpp">
-      <Filter>01.Utility\08.Sampler</Filter>
+    <ClCompile Include="Private\VIBuffer_Terrain.cpp">
+      <Filter>01.Utility\04.Component\VIBuffer\Terrain</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\EngineSDK\hlsl\Engine_VertexShader_Defines.hlsli" />
-    <None Include="Bin\ShaderFiles\Engine_PixelShader_Defines.hlsli" />
+    <None Include="..\EngineSDK\hlsl\Engine_PixelShader_Defines.hlsli" />
   </ItemGroup>
 </Project>

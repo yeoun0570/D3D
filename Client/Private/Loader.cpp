@@ -1,6 +1,7 @@
 #include "Loader.h"
 #include "GameInstance.h"
 #include "BackGround.h"
+#include "Terrain.h"
 
 CLoader::CLoader(ComPtr<ID3D11Device> pDevice, ComPtr<ID3D11DeviceContext> pContext)
 	: m_pDevice { pDevice }
@@ -92,12 +93,10 @@ HRESULT CLoader::Loading_For_LogoLV()
         return E_FAIL;
 
     lstrcpy(m_szLoadingText, TEXT("모델을 로딩 중 입니다."));
-
+    
 
     lstrcpy(m_szLoadingText, TEXT("사운드를 로딩 중 입니다."));
-    for (uint32_t i = 0; i < 99999999; i++)
-        uint32_t iData = 10;
-
+  
     lstrcpy(m_szLoadingText, TEXT("원형을 로딩 중 입니다."));
     /* For.Prototype_GameObject_BackGround */
     if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::LOGO), TEXT("Prototype_GameObject_BackGround"),
@@ -115,20 +114,39 @@ HRESULT CLoader::Loading_For_LogoLV()
 HRESULT CLoader::Loading_For_GamePlayLV()
 {
     lstrcpy(m_szLoadingText, TEXT("텍스쳐를 로딩 중 입니다."));
-    for (uint32_t i = 0; i < 99999999; i++)
-        uint32_t iData = 10;
+    /* For.Prototype_Component_Texture_Terrain */
+    if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::GAMEPLAY), TEXT("Prototype_Component_Texture_Terrain"),
+        CTexture::Create(m_pDevice, m_pContext, TEXT("Bin/Resources/Textures/Terrain/Tile0.jpg"), 1))))
+        return E_FAIL;
 
     lstrcpy(m_szLoadingText, TEXT("모델을 로딩 중 입니다."));
-    for (uint32_t i = 0; i < 99999999; i++)
-        uint32_t iData = 10;
+    /* For.Prototype_Component_VIBuffer_Terrain */
+    if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::GAMEPLAY), TEXT("Prototype_Component_VIBuffer_Terrain"),
+        CVIBuffer_Terrain::Create(m_pDevice, m_pContext, TEXT("Bin/Resources/Textures/Terrain/Height.bmp")))))
+        return E_FAIL;
+    
+        
+    lstrcpy(m_szLoadingText, TEXT("정점셰이더을 로딩 중 입니다."));
+    /* For.Prototype_Component_VertexShader_Terrain */
+    if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::GAMEPLAY), TEXT("Prototype_Component_VertexShader_Terrain"),
+        CVertexShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/VertexShader/VS_PosNorTex.hlsl"), VTXNORTEX::Elements, VTXNORTEX::iNumElements, "main_terrain"))))
+        return E_FAIL;
+
+    /* For.Prototype_Component_PixelShader_Terrain */
+    if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::GAMEPLAY), TEXT("Prototype_Component_PixelShader_Terrain"),
+        CPixelShader::Create(m_pDevice, m_pContext, TEXT("Bin/ShaderFiles/PixelShader/PS_PosNorTex.hlsl"), "main_terrain"))))
+        return E_FAIL;
+
+    
 
     lstrcpy(m_szLoadingText, TEXT("사운드를 로딩 중 입니다."));
-    for (uint32_t i = 0; i < 99999999; i++)
-        uint32_t iData = 10;
+    
 
     lstrcpy(m_szLoadingText, TEXT("원형을 로딩 중 입니다."));
-    for (uint32_t i = 0; i < 99999999; i++)
-        uint32_t iData = 10;
+    /* For.Prototype_GameObject_Terrain */
+    if (FAILED(CGameInstance::Get().Add_Prototype(ETOUI(LEVEL::GAMEPLAY), TEXT("Prototype_GameObject_Terrain"),
+        CTerrain::Create(m_pDevice, m_pContext))))
+        return E_FAIL;
 
     lstrcpy(m_szLoadingText, TEXT("로딩이 완료되었습니다."));
 

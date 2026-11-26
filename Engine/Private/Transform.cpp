@@ -14,6 +14,11 @@ HRESULT CTransform::Initialize_Prototype()
 
 HRESULT CTransform::Initialize(void* pArg)
 {
+    m_pCB = CConstantBuffer::Create(m_pDevice, m_pContext, &m_WorldMatrix, sizeof m_WorldMatrix);
+    if (nullptr == m_pCB)
+        return E_FAIL;
+
+
     if (nullptr == pArg)
         return S_OK;
 
@@ -23,10 +28,7 @@ HRESULT CTransform::Initialize(void* pArg)
     m_fRotationPerSec = XMConvertToRadians(pDesc->fRotationDegreePerSec);
     XMStoreFloat4x4(&m_WorldMatrix, XMMatrixIdentity());
 
-    m_pCB = CConstantBuffer::Create(m_pDevice, m_pContext, &m_WorldMatrix, sizeof m_WorldMatrix);
-    if (nullptr == m_pCB)
-        return E_FAIL;
-
+  
 	return S_OK;
 }
 

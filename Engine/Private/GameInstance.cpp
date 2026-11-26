@@ -207,6 +207,8 @@ HRESULT CGameInstance::Bind_PixelShader_Sampler(const wstring_t& strSamplerTag, 
 
 void CGameInstance::Release_Engine()
 {
+    m_pSampler_Manager.reset();
+
     m_pPipeline.reset();
 
     m_pRenderer.reset();
@@ -220,6 +222,4 @@ void CGameInstance::Release_Engine()
     m_pTimer_Manager.reset();
 
     m_pGraphic_Device.reset();
-
-    m_pSampler_Manager.reset();
 }
