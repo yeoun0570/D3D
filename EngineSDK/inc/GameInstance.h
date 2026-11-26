@@ -11,10 +11,10 @@
 #include "VIBuffer_Rect.h"
 #include "Level_Manager.h"
 #include "Graphic_Device.h"
-
 #include "Object_Manager.h"
 #include "ConstantBuffer.h"
 #include "Sampler_Manager.h"
+#include "VIBuffer_Terrain.h"
 #include "Prototype_Manager.h"
 
 NS_BEGIN(Engine)
