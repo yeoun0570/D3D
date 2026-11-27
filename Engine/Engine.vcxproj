@@ -119,7 +119,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>d3d11.lib;dxguid.lib;d3dcompiler.lib;DirectXTKd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxguid.lib;d3dcompiler.lib;DirectXTKd.lib;dinput8.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>ThirdPartyLib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Public\Camera.h" />
     <ClInclude Include="public\Component.h" />
     <ClInclude Include="public\ConstantBuffer.h" />
     <ClInclude Include="Public\Engine_Defines.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="public\GameInstance.h" />
     <ClInclude Include="Public\GameObject.h" />
     <ClInclude Include="Public\Graphic_Device.h" />
+    <ClInclude Include="Public\Input_Device.h" />
     <ClInclude Include="public\Layer.h" />
     <ClInclude Include="public\Level.h" />
     <ClInclude Include="public\Level_Manager.h" />
@@ -180,11 +182,13 @@
     <ClInclude Include="Public\VIBuffer_Terrain.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Private\Camera.cpp" />
     <ClCompile Include="Private\Component.cpp" />
     <ClCompile Include="private\ConstantBuffer.cpp" />
     <ClCompile Include="private\GameInstance.cpp" />
     <ClCompile Include="Private\GameObject.cpp" />
     <ClCompile Include="Private\Graphic_Device.cpp" />
+    <ClCompile Include="Private\Input_Device.cpp" />
     <ClCompile Include="Private\Layer.cpp" />
     <ClCompile Include="private\Level.cpp" />
     <ClCompile Include="private\Level_Manager.cpp" />

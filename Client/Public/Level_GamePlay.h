@@ -17,6 +17,7 @@ public:
 	virtual void Update(f32_t fTimeDelta) override;
 	virtual HRESULT Render() override;
 private:
+	HRESULT Ready_Layer_Camera(const wstring_t& strLayerTag);
 	HRESULT Ready_Layer_BackGround(const wstring_t& strLayerTag);
 
 public:

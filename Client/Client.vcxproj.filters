@@ -43,6 +43,12 @@
     <Filter Include="02.GameObjects\Terrain">
       <UniqueIdentifier>{857e2820-40fb-4cf0-a5cb-910973813cf1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02.GameObjects\Camera">
+      <UniqueIdentifier>{9a6e3d9d-38b3-4c2d-a8c0-95dd95879128}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.GameObjects\Camera\Free">
+      <UniqueIdentifier>{91b43c9a-7e7c-4ed3-9191-d184f22dd3f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="public\MainApp.h">
@@ -81,6 +87,9 @@
     <ClInclude Include="Public\Terrain.h">
       <Filter>02.GameObjects\Terrain</Filter>
     </ClInclude>
+    <ClInclude Include="Public\Camera_Free.h">
+      <Filter>02.GameObjects\Camera\Free</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\MainApp.cpp">
@@ -106,6 +115,9 @@
     </ClCompile>
     <ClCompile Include="Private\Terrain.cpp">
       <Filter>02.GameObjects\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Camera_Free.cpp">
+      <Filter>02.GameObjects\Camera\Free</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

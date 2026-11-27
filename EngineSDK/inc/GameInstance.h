@@ -7,6 +7,7 @@
 #include "Transform.h"
 #include "PixelShader.h"
 #include "VertexShader.h"
+#include "Input_Device.h"
 #include "Timer_Manager.h"
 #include "VIBuffer_Rect.h"
 #include "Level_Manager.h"
@@ -75,6 +76,12 @@ public:
 	HRESULT Bind_PixelShader_Sampler(const wstring_t& strSamplerTag, uint32_t iSlot);
 #pragma endregion
 
+#pragma region INPUT_DEVICE
+	int8_t	Get_DIKeyState(uint8_t byKeyID);
+	int8_t	Get_DIMouseState(DIMK eMouse);
+	int32_t Get_DIMouseMove(DIMM eMouseState);
+#pragma endregion
+
 
 private:
 	unique_ptr<CTimer_Manager>				m_pTimer_Manager = { nullptr };
@@ -85,6 +92,9 @@ private:
 	unique_ptr<CRenderer>					m_pRenderer = { nullptr };
 	unique_ptr<CPipeline>					m_pPipeline = { nullptr };
 	unique_ptr<CSampler_Manager>			m_pSampler_Manager = { nullptr };
+	unique_ptr<CInput_Device>				m_pInput_Device = { nullptr };
+
+	
 
 private:
 	float2_t			m_vViewportSize = {};
