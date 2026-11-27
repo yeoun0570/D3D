@@ -16,6 +16,7 @@ HRESULT CMainApp::Initialize()
 {
     ENGINE_DESC     EngineDesc
     {
+        .hInstance = g_hInstance,
         .hWnd = g_hWnd,
         .eWinMode = WINMODE::WIN,
         .iWinSizeX = g_iWinSizeX,

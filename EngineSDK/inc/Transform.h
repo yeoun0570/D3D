@@ -30,6 +30,10 @@ public:
 		);
 	}
 
+	const float4x4_t* Get_WorldMatrixPtr() const {
+		return &m_WorldMatrix;
+	}
+
 	void Set_State(STATE eState, fvector_t vState) {
 		XMStoreFloat4(reinterpret_cast<float4_t*>(&m_WorldMatrix.m[ETOUI(eState)]), vState);
 	}

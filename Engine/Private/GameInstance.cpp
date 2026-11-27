@@ -3,6 +3,8 @@
 #include "Level_Manager.h"
 #include "Pipeline.h"
 
+#include "Input_Device.h"
+
 CGameInstance::CGameInstance()
 {
 }
@@ -13,6 +15,10 @@ HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ Co
 
     m_pGraphic_Device = CGraphic_Device::Create(EngineDesc.hWnd, EngineDesc.eWinMode, EngineDesc.iWinSizeX, EngineDesc.iWinSizeY, pDevice, pContext);
     if (nullptr == m_pGraphic_Device)
+        return E_FAIL;
+
+    m_pInput_Device = CInput_Device::Create(EngineDesc.hInstance, EngineDesc.hWnd);
+    if (nullptr == m_pInput_Device)
         return E_FAIL;
 
     m_pTimer_Manager = CTimer_Manager::Create();
@@ -48,6 +54,8 @@ HRESULT CGameInstance::Initialize_Engine(const ENGINE_DESC& EngineDesc, _Out_ Co
 
 void CGameInstance::Update_Engine(f32_t fTimeDelta)
 {
+    m_pInput_Device->Update();
+
     m_pObject_Manager->Priority_Update(fTimeDelta);
     m_pObject_Manager->Update(fTimeDelta);
     m_pObject_Manager->Late_Update(fTimeDelta);
@@ -202,6 +210,24 @@ HRESULT CGameInstance::Bind_PixelShader_Sampler(const wstring_t& strSamplerTag, 
     return m_pSampler_Manager->Bind_PixelShader(strSamplerTag, iSlot);
 }
 
+#pragma endregion
+
+#pragma region INPUT_DEVICE
+
+int8_t CGameInstance::Get_DIKeyState(uint8_t byKeyID)
+{
+    return m_pInput_Device->Get_DIKeyState(byKeyID);
+}
+
+int8_t CGameInstance::Get_DIMouseState(DIMK eMouse)
+{
+    return m_pInput_Device->Get_DIMouseState(eMouse);
+}
+
+int32_t CGameInstance::Get_DIMouseMove(DIMM eMouseState)
+{
+    return m_pInput_Device->Get_DIMouseMove(eMouseState);
+}
 
 #pragma endregion
 
@@ -222,4 +248,6 @@ void CGameInstance::Release_Engine()
     m_pTimer_Manager.reset();
 
     m_pGraphic_Device.reset();
+
+    m_pInput_Device.reset();
 }

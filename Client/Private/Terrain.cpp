@@ -35,8 +35,7 @@ void CTerrain::Update(f32_t fTimeDelta)
 {
 	__super::Update(fTimeDelta);
 
-	CGameInstance::Get().Set_Transform(D3DTS::VIEW, XMMatrixLookAtLH(XMVectorSet(0.f, 10.f, -10.f ,1.f), XMVectorSet(0.f, 0.f, 0.f, 1.f), XMVectorSet(0.f, 1.f, 0.f, 0.f)));
-	CGameInstance::Get().Set_Transform(D3DTS::PROJ, XMMatrixPerspectiveFovLH(XMConvertToRadians(60.f), static_cast<f32_t>(g_iWinSizeX) / g_iWinSizeY, 0.1f, 1000.f));
+
 }
 
 void CTerrain::Late_Update(f32_t fTimeDelta)
